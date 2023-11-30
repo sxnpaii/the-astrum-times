@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Fragment } from 'react'
+import HomePage from './components/layouts/HomePage'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-    
-    </>
+    <Fragment>
+      <HomePage />
+    </Fragment>
   )
 }
 
