@@ -9,31 +9,37 @@ import LogoImg from "../../assets/the-astrum-times.svg";
 const header = () => {
   return (
     <header className="site-header">
-      <div className="container">
+      <div className="site-container">
         <div className="header-top">
           <div className="menu-search">
             <img className="menu" src={menu} alt="menu icon" />
             <img className="search" src={search} alt="search icon" />
           </div>
-          <nav className="site-nav">
-            <ul className="nav-list">
-              <li className="nav-item">
-                <button className="eng">Eng</button>
-              </li>
-              <li className="nav-item">
-                <button className="uz">UZ</button>
-              </li>
-              <li className="nav-item">
-                <button className="rus">rus</button>
-              </li>
-            </ul>
-          </nav>
-          <button className="login">Log In</button>
+
+          <ul className="nav-list">
+            <li className="nav-item ">
+              <button className="eng uppercase" type="button">
+                Eng
+              </button>
+            </li>
+            <li className="nav-item">
+              <button className="uz uppercase" type="button">
+                UZ
+              </button>
+            </li>
+            <li className="nav-item">
+              <button className="rus uppercase" type="button">
+                rus
+              </button>
+            </li>
+          </ul>
+
+          <a className="login">Log In</a>
         </div>
 
-        <div className="header-bottom ">
-          <div className="date-wrapper ">
-            <b className="date text-center">Thursday, November 9, 2023</b>
+        <div className="header-bottom">
+          <div className="date-wrapper">
+            <p className="date">Thursday, November 9, 2023</p>
             <p className="today">Today’s Paper</p>
           </div>
 
