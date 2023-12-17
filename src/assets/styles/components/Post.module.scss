@@ -1,0 +1,18 @@
+.Post {
+  @apply w-full flex justify-between gap-5 max-md:flex-wrap border-t border-t-BasicTextColor py-5 mb-3;
+  .Info {
+    @apply md:min-w-[35%];
+    .Title {
+      @apply font-bold font-Georgia text-3xl mb-3;
+    }
+    .Description {
+      @apply font-Inter text-BasicTextColor;
+    }
+  }
+  .Link {
+    @apply md:max-w-[50%];
+    .Cover_img {
+      @apply w-full;
+    }
+  }
+} 
