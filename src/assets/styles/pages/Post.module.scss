@@ -1,0 +1,12 @@
+.PostPage {
+  @apply w-[50%] mx-auto my-32 font-Inter;
+  .Title {
+    @apply text-center text-6xl;
+  }
+  .Description {
+    @apply text-BasicTextColor mb-32 text-center max-w-[350px] mx-auto;
+  }
+  .Cover_Img {
+    @apply w-full mb-10;
+  }
+}
