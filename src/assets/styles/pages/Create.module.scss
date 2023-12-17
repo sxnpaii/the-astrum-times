@@ -1,0 +1,31 @@
+.Create {
+  @apply mx-auto font-Inter;
+  code,
+  pre {
+    @apply font-JetBrainsMono;
+  }
+  .Layer {
+    @apply flex flex-col max-w-[800px] mx-auto;
+
+    .Content {
+      @apply w-full bg-ReadableBgColor rounded-2xl py-4 px-8;
+      background: linear-gradient(180deg, #f7f7f5, #fff);
+    }
+    .Btn {
+      @apply block text-ReadableBgColor bg-BasicTextColor w-full border py-6 rounded-2xl mt-10;
+    }
+    .Is_Event {
+      @apply flex justify-between bg-ReadableBgColor rounded-2xl  mb-5 p-4;
+      .Question {
+        @apply flex flex-col items-end;
+        .Is_EventCheckbox {
+          @apply w-5 h-5;
+        }
+        .Event_Time{
+          @apply focus:outline-none
+        }
+
+      }
+    }
+  }
+}

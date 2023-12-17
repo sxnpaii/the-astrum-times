@@ -15,3 +15,12 @@
 - Created components: `Post` and `Header`
 - Added `Scss` to project for styling
 - Re-writed  `README.md`
+
+### Commit  from @sxnpaii
+
+- Created `/create` route
+- Created `/post` dynamic route
+- Added `editorjs` text editor for posting _(limited)_
+- All values in `/create` stores in `localStorage` as draft
+- Conditionally rendered pages `/post` and `/index`
+- Created component `Loading`

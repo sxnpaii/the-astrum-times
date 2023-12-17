@@ -1,10 +1,12 @@
+import Layout from "../layouts/Layout";
 import Posts from "../sections/HomePage/Posts"
 
 const HomePage = () => {
   return (
-    <main>
+    <Layout>
+      {/* sections */}
       <Posts />
-    </main>
+    </Layout>
   )
 }
 

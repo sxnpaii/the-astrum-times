@@ -8,10 +8,9 @@ const Post = ({ postData }) => {
       <div className={sass.Info}>
         <h6 className={sass.Title}>{postData.title}</h6>
         <p className={sass.Description}>{postData.description}</p>
-        {/* <p>{postData.published_date}</p> */}
       </div>
       <Link to={`/posts/${postData.id}`} className={sass.Link}>
-        <img src={postData.cover_img} alt={postData.title} className={sass.Cover_img} /> 
+        <img src={postData.cover_img.url} alt={postData.title} className={sass.Cover_img} />
       </Link>
     </div>
   )
