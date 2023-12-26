@@ -4,6 +4,7 @@ import { getDownloadURL, getStorage, ref, uploadString } from "firebase/storage"
 export const UploadImage = async (file) => {
   const storage = getStorage();
   const storageRef = ref(storage, `post_covers/${file.name}`);
+  // object for post 
   const fileFromStorage = {
     name: null,
     url: null

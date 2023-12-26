@@ -10,6 +10,7 @@ import Layout from '../layouts/Layout'
 import GeneralForm from '../sections/CreatePage/GeneralForm';
 // styles
 import sass from "../assets/styles/pages/Create.module.scss"
+import Loading from '../components/Loading';
 
 // Create page 
 const Create = () => {
@@ -25,8 +26,11 @@ const Create = () => {
     description: "",
     content: "",
     is_event: false,
-    event_time: ""
+    event_time: "",
+    // published_date: new Date()
   }))
+  // state for loading screen 
+  const [isLoading, setIsLoading] = useState(false)
   // state for collecting draft
   const [dataFromEditor, setDataFromEditor] = useState({
     ...draft
@@ -58,15 +62,15 @@ const Create = () => {
   const onChange = async () => {
     const raw = await editorCore.current.save();
     setEditorjsValue(raw);
-    
+
   };
   // function for collecting title description and event time data
-  const handleOnChange = (key, value) => {
+  const handleOnChange = useCallback((key, value) => {
     setDataFromEditor({
       ...dataFromEditor,
       [key]: value
     });
-  };
+  }, [dataFromEditor]);
   // File uploading func to keep in browser
   const handleFileUpload = (file) => {
     const reader = new FileReader();
@@ -86,6 +90,7 @@ const Create = () => {
   // Saving data from localStorage to Server and clear draft
   const handleSave = async () => {
     try {
+      setIsLoading(true)
       const draft_raw = JSON.parse(localStorage.getItem("draft"));
       const fromStorage = await UploadImage(dataFromEditor.cover_img);
       await PostData({
@@ -93,74 +98,80 @@ const Create = () => {
         cover_img: {
           name: fromStorage.name,
           url: fromStorage.url
-        }
+        },
+        published_date: new Date(Date.now()).toISOString()
       });
       localStorage.removeItem("draft");
+      setIsLoading(false)
     } catch (error) {
       console.error(error)
     }
   };
 
   return (
-    <Layout className={sass.Create}>
-      <div className={sass.Layer}>
+    isLoading
+      ?
+      <Loading />
+      :
+      <Layout className={sass.Create}>
+        <div className={sass.Layer}>
 
-        <GeneralForm
-          dataFromEditor={dataFromEditor}
-          handleOnChange={handleOnChange}
-          handleSave={handleSave}
-          handleFileUpload={handleFileUpload}
-          dataImage={dataFromEditor.cover_img}
-        />
-        <div className={sass.Is_Event}>
-          <p> Этот пост объявление какого-то ивента ?<br />
-            <sup>
-              <i>
-                Если да, поставьте checked и укажите дату ивента
-              </i>
-            </sup>
-          </p>
+          <GeneralForm
+            dataFromEditor={dataFromEditor}
+            handleOnChange={handleOnChange}
+            handleSave={handleSave}
+            handleFileUpload={handleFileUpload}
+            dataImage={dataFromEditor.cover_img}
+          />
+          <div className={sass.Is_Event}>
+            <p> Этот пост объявление какого-то ивента ?<br />
+              <sup>
+                <i>
+                  Если да, поставьте checked и укажите дату ивента
+                </i>
+              </sup>
+            </p>
 
-          <div className={sass.Question}>
-            <input
-              className={`${sass.Is_EventCheckbox}`}
-              type="checkbox"
-              name="is_event"
-              id="is_event"
-              checked={dataFromEditor.is_event}
-              onChange={(e) => handleOnChange("is_event", e.target.checked)}
+            <div className={sass.Question}>
+              <input
+                className={`${sass.Is_EventCheckbox}`}
+                type="checkbox"
+                name="is_event"
+                id="is_event"
+                checked={dataFromEditor.is_event}
+                onChange={(e) => handleOnChange("is_event", e.target.checked)}
+              />
+              {
+                dataFromEditor.is_event
+                  ?
+                  <input
+                    type="datetime-local"
+                    className={sass.Event_Time}
+                    value={dataFromEditor.event_time}
+                    onChange={(e) => handleOnChange("event_time", e.target.value)}
+                  />
+                  :
+                  null
+              }
+            </div>
+          </div>
+          <div className={sass.Content}>
+            <Editorjs
+              onChange={onChange}
+              handleInitialize={handleInitialize}
+              handleReady={handleReady}
+              onref={editorCore}
+              defaultValue={dataFromEditor.content}
             />
-            {
-              dataFromEditor.is_event
-                ?
-                <input
-                  type="datetime-local"
-                  className={sass.Event_Time}
-                  value={dataFromEditor.event_time}
-                  onChange={(e) => handleOnChange("event_time", e.target.value)}
-                />
-                :
-                null
-            }
+            <button
+              onClick={handleSave}
+              className={sass.Btn}
+            >
+              Save
+            </button>
           </div>
         </div>
-        <div className={sass.Content}>
-          <Editorjs
-            onChange={onChange}
-            handleInitialize={handleInitialize}
-            handleReady={handleReady}
-            onref={editorCore}
-            defaultValue={dataFromEditor.content}
-          />
-          <button
-            onClick={handleSave}
-            className={sass.Btn}
-          >
-            Save
-          </button>
-        </div>
-      </div>
-    </Layout>
+      </Layout>
   )
 }
 

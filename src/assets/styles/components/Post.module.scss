@@ -1,18 +1,49 @@
 .Post {
-  @apply w-full flex justify-between gap-5 max-md:flex-wrap border-t border-t-BasicTextColor py-5 mb-3;
+  @apply w-full flex justify-between gap-5 max-md:flex-wrap border-t border-t-BasicTextColor border-opacity-50 py-5 mb-3;
   .Info {
     @apply md:min-w-[35%];
     .Title {
       @apply font-bold font-Georgia text-3xl mb-3;
     }
     .Description {
-      @apply font-Inter text-BasicTextColor;
+      @apply font-Inter text-BasicTextColor mb-5;
+    }
+    .Published_Date{
+      @apply font-Inter text-xs opacity-50
     }
   }
   .Link {
     @apply md:max-w-[50%];
     .Cover_img {
-      @apply w-full;
+      @apply w-full min-w-[480px];
     }
   }
 } 
+
+.Mini_Post{
+  @apply w-full flex justify-between gap-5 max-md:flex-wrap border-t border-t-BasicTextColor border-opacity-50 py-3 mb-2;
+  .Info {
+    @apply md:min-w-[35%];
+    .Event_Date {
+      @apply flex items-center gap-2 font-Inter font-bold text-sm mb-3;
+      .dateIcon{
+        @apply max-w-[20px]
+      }
+    }
+    .Title {
+      @apply font-bold font-Georgia text-xl mb-1 break-words;
+    }
+    .Description {
+      @apply font-Inter text-BasicTextColor text-sm mb-5;
+    }
+    .Published_Date{
+      @apply font-Inter text-xs opacity-50 ;
+    }
+  }
+  .Link {
+    @apply md:max-w-[40%];
+    .Cover_img {
+      @apply w-full;
+    }
+  }
+}

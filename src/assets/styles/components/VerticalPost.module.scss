@@ -1,0 +1,23 @@
+.VerticalPost {
+  @apply border mb-10 pb-10;
+  .ImgLink {
+    @apply inline-block mb-4;
+  }
+  .Info {
+    @apply px-4;
+
+    .Event_Date {
+      @apply flex items-center gap-3 font-Inter font-bold;
+      .dateIcon{
+        @apply max-w-[30px]
+      }
+    }
+
+    .Title {
+      @apply font-Georgia text-2xl font-bold mb-4;
+    }
+    .Description {
+      @apply font-Inter;
+    }
+  }
+}

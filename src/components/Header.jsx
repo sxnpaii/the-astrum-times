@@ -1,3 +1,4 @@
+import moment from "moment";
 import sass from "../assets/styles/components/Header.module.scss"
 
 const Header = () => {
@@ -6,7 +7,7 @@ const Header = () => {
       <div className={sass.LogoBar}>
         <p className={sass.Date}>
           <b>
-            {new Date().toDateString()}
+            {moment().format("dddd, Do MMMM, YYYY")}
           </b>
           <br />
           Todays paper
@@ -16,7 +17,7 @@ const Header = () => {
             The Astrum News
           </a>
         </h1>
-        <span className={sass.Test}>in test mode</span>
+        <span className={sass.Test}>NIGHTLY  DEV</span>
       </div>
     </header>
   )
