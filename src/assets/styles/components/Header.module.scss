@@ -4,7 +4,7 @@
   .LogoBar {
     @apply flex justify-between;
     .Date{
-      @apply  max-w-[150px] font-Inter
+      @apply font-Inter
     }
     .TheTitle {
       @apply font-OldEngTextMT text-HeadingTextColor no-underline sm:text-5xl text-3xl lg:text-7xl m-0 font-normal text-center 

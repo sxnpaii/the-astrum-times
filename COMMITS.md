@@ -24,3 +24,14 @@
 - All values in `/create` stores in `localStorage` as draft
 - Conditionally rendered pages `/post` and `/index`
 - Created component `Loading`
+
+### Commit from @sxnpaii
+
+- Created `RightSide` section
+- Added `Events` section
+- Sorting and filtering data in DOM, in sections `Events`, `Posts`
+- Created component `VerticalPost`
+- Modified mutable component `Post` with additional props
+- Added `Swiperjs` to project and used in `Events` section
+- Fixed Date and Time with `moment.js` lib
+- Fixed styles
