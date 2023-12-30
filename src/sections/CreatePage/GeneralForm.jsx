@@ -17,7 +17,7 @@ const GeneralForm = ({
           src={dataImage.content ? dataImage.content : plus}
           alt=""
         />
-        <p>{dataImage.name ? dataImage.name : "Upload a cover image for post"}</p>
+        <p>{dataImage.name ? dataImage.name : "Upload a cover image. Image must be less than 3mb and in format horizontal format 16:9"}</p>
         <input
           className={sass.Cover_img_Input}
           type="file"

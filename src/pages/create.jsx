@@ -36,7 +36,7 @@ const Create = () => {
     ...draft
   })
   // EditorJs value state 
-  const [editorjsValue, setEditorjsValue] = useState(draft.content)
+  const [editorjsValue, setEditorjsValue] = useState(draft.content || "")
   // effects
   useEffect(() => {
     // confirmation if user need reload 
@@ -91,8 +91,8 @@ const Create = () => {
   const handleSave = async () => {
     try {
       setIsLoading(true)
-      const draft_raw = JSON.parse(localStorage.getItem("draft"));
       const fromStorage = await UploadImage(dataFromEditor.cover_img);
+      const draft_raw = JSON.parse(localStorage.getItem("draft"));
       await PostData({
         ...draft_raw,
         cover_img: {
@@ -108,6 +108,26 @@ const Create = () => {
     }
   };
 
+  // Clear draft data from localStorage and state
+  const handleClearDraft = () => {
+    // from localStorage
+    localStorage.removeItem("draft");
+    // from state
+    setDataFromEditor({
+      cover_img: {
+        name: "",
+        url: "",
+      },
+      title: "",
+      description: "",
+      content: "",
+      is_event: false,
+      event_time: "",
+    })
+    // from Editor
+    setEditorjsValue(dataFromEditor.content)
+    location.reload()
+  }
   return (
     isLoading
       ?
@@ -156,16 +176,26 @@ const Create = () => {
             </div>
           </div>
           <div className={sass.Content}>
+            <i>Редактор всё ещё в тестовом режиме...  </i>
             <Editorjs
               onChange={onChange}
               handleInitialize={handleInitialize}
               handleReady={handleReady}
               onref={editorCore}
-              defaultValue={dataFromEditor.content}
+              content={dataFromEditor.content}
             />
+
+          </div>
+          <div className={sass.Actions}>
+            <button
+              onClick={handleClearDraft}
+              className={sass.Btn}
+            >
+              Clear Draft
+            </button>
             <button
               onClick={handleSave}
-              className={sass.Btn}
+              className={sass.ActiveBtn}
             >
               Save
             </button>

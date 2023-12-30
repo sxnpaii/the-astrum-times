@@ -1,6 +1,5 @@
 import { addDoc, collection, doc, getDoc, getDocs, } from "firebase/firestore"
 import { db } from "../config/firebase"
-import { v4 as uuid } from "uuid"
 
 // GET ALL DATA 
 export const GetAllData = async () => {

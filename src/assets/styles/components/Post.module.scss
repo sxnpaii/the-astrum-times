@@ -25,9 +25,9 @@
   .Info {
     @apply md:min-w-[35%];
     .Event_Date {
-      @apply flex items-center gap-2 font-Inter font-bold text-sm mb-3;
+      @apply flex items-center gap-2 font-Inter opacity-60 text-sm;
       .dateIcon{
-        @apply max-w-[20px]
+        @apply max-w-[23px];
       }
     }
     .Title {
