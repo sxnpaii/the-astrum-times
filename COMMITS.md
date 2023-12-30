@@ -35,3 +35,9 @@
 - Added `Swiperjs` to project and used in `Events` section
 - Fixed Date and Time with `moment.js` lib
 - Fixed styles
+
+### Commit from @sxnpaii
+
+- Created function to clear draft data on `create` page
+- Fixed styles
+- Fixed bugs in Editor

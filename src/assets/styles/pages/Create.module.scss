@@ -7,13 +7,6 @@
   .Layer {
     @apply flex flex-col max-w-[800px] mx-auto;
 
-    .Content {
-      @apply w-full bg-ReadableBgColor rounded-2xl py-4 px-8;
-      background: linear-gradient(180deg, #f7f7f5, #fff);
-    }
-    .Btn {
-      @apply block text-ReadableBgColor bg-BasicTextColor w-full border py-6 rounded-2xl mt-10;
-    }
     .Is_Event {
       @apply flex justify-between bg-ReadableBgColor rounded-2xl  mb-5 p-4;
       .Question {
@@ -24,7 +17,20 @@
         .Event_Time{
           @apply focus:outline-none
         }
+      }
+    }
+    .Content {
+      @apply w-full bg-ReadableBgColor rounded-2xl py-4 px-8;
+      background: linear-gradient(180deg, #f7f7f5, #fff);
+    }
 
+    .Actions{
+      @apply flex items-center mt-10 gap-5;
+      .Btn{
+        @apply block text-BasicTextColor w-1/2 py-6 border rounded-2xl
+      }
+      .ActiveBtn {
+        @apply block text-ReadableBgColor bg-BasicTextColor w-1/2 border py-6 rounded-2xl ;
       }
     }
   }

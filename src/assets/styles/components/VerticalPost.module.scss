@@ -7,9 +7,9 @@
     @apply px-4;
 
     .Event_Date {
-      @apply flex items-center gap-3 font-Inter font-bold;
+      @apply flex items-center gap-2 font-Inter opacity-60 text-sm;
       .dateIcon{
-        @apply max-w-[30px]
+        @apply max-w-[23px];
       }
     }
 

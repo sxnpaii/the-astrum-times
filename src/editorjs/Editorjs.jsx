@@ -26,8 +26,7 @@ const Editorjs = ({
         onChange={onChange}
         onReady={handleReady}
         onInitialize={handleInitialize}
-        defaultValue={defaultValue ? defaultValue : content}
-  
+        defaultValue={defaultValue? defaultValue : content}
       />
       <style>
         {styles}
