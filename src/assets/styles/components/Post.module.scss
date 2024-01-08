@@ -8,8 +8,8 @@
     .Description {
       @apply font-Inter text-BasicTextColor mb-5;
     }
-    .Published_Date{
-      @apply font-Inter text-xs opacity-50
+    .Published_Date {
+      @apply font-Inter text-xs opacity-50;
     }
   }
   .Link {
@@ -18,15 +18,15 @@
       @apply w-full min-w-[480px];
     }
   }
-} 
+}
 
-.Mini_Post{
+.Mini_Post {
   @apply w-full flex justify-between gap-5 max-md:flex-wrap border-t border-t-BasicTextColor border-opacity-50 py-3 mb-2;
   .Info {
     @apply md:min-w-[35%];
     .Event_Date {
       @apply flex items-center gap-2 font-Inter opacity-60 text-sm;
-      .dateIcon{
+      .dateIcon {
         @apply max-w-[23px];
       }
     }
@@ -36,8 +36,8 @@
     .Description {
       @apply font-Inter text-BasicTextColor text-sm mb-5;
     }
-    .Published_Date{
-      @apply font-Inter text-xs opacity-50 ;
+    .Published_Date {
+      @apply font-Inter text-xs opacity-50;
     }
   }
   .Link {

@@ -1,16 +1,15 @@
 import { createReactEditorJS } from "react-editor-js";
 import { EDITOR_JS_TOOLS } from "./editortools";
-import { styles } from "../assets/styles/Basics"
+import { styles } from "../assets/styles/Basics";
 const Editorjs = ({
   ReadOnly,
   content,
   defaultValue,
   handleReady,
   handleInitialize,
-  onChange
+  onChange,
 }) => {
-  const Editor = createReactEditorJS()
-
+  const Editor = createReactEditorJS();
 
   return (
     <>
@@ -22,17 +21,15 @@ const Editorjs = ({
         readOnly={ReadOnly}
         tools={EDITOR_JS_TOOLS}
         placeholder="Yozing..."
-        // write 
+        // write
         onChange={onChange}
         onReady={handleReady}
         onInitialize={handleInitialize}
-        defaultValue={defaultValue? defaultValue : content}
+        defaultValue={defaultValue ? defaultValue : content}
       />
-      <style>
-        {styles}
-      </style>
+      <style>{styles}</style>
     </>
-  )
-}
+  );
+};
 
-export default Editorjs
+export default Editorjs;

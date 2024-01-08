@@ -14,8 +14,8 @@
         .Is_EventCheckbox {
           @apply w-5 h-5;
         }
-        .Event_Time{
-          @apply focus:outline-none
+        .Event_Time {
+          @apply focus:outline-none;
         }
       }
     }
@@ -24,13 +24,13 @@
       background: linear-gradient(180deg, #f7f7f5, #fff);
     }
 
-    .Actions{
+    .Actions {
       @apply flex items-center mt-10 gap-5;
-      .Btn{
-        @apply block text-BasicTextColor w-1/2 py-6 border rounded-2xl
+      .Btn {
+        @apply block text-BasicTextColor w-1/2 py-6 border rounded-2xl;
       }
       .ActiveBtn {
-        @apply block text-ReadableBgColor bg-BasicTextColor w-1/2 border py-6 rounded-2xl ;
+        @apply block text-ReadableBgColor bg-BasicTextColor w-1/2 border py-6 rounded-2xl;
       }
     }
   }
