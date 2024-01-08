@@ -1,7 +1,5 @@
-
-import OldEngText from "../fonts/OLD.ttf"
-import Georgia from "../fonts/georgia.ttf"
-
+import OldEngText from "../fonts/OLD.ttf";
+import Georgia from "../fonts/georgia.ttf";
 
 export const ImportFonts = `
 @import url('https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono:wght@400;700&display=swap');
@@ -19,7 +17,7 @@ export const ImportFonts = `
     url("${Georgia}") format("opentype"),
     url("${Georgia}") format("truetype");
 }
-`
+`;
 
 export const styles = `
 h1 {

@@ -1,6 +1,6 @@
 ### Commit from @sxnpaii
 
-- Created limited and page for create posts (can't send data to db),  **_dashboard_** page
+- Created limited and page for create posts (can't send data to db), **_dashboard_** page
 - Added Firebase configs to project
 - GET data from Firebase
 - Added routes
@@ -14,9 +14,9 @@
 - Fixed styles and added new style configs to `HomePage` and to project
 - Created components: `Post` and `Header`
 - Added `Scss` to project for styling
-- Re-writed  `README.md`
+- Re-writed `README.md`
 
-### Commit  from @sxnpaii
+### Commit from @sxnpaii
 
 - Created `/create` route
 - Created `/post` dynamic route
@@ -41,3 +41,9 @@
 - Created function to clear draft data on `create` page
 - Fixed styles
 - Fixed bugs in Editor
+
+### Commit from @sxnpaii
+
+- Formatted code with Prettier
+- Fixed styles
+- Edited Vite config
