@@ -2,10 +2,10 @@ import sass from "../../assets/styles/sections/CreatePage/GeneralForm.module.scs
 import plus from "../../assets/images/plus-solid.svg";
 
 const GeneralForm = ({
-  handleOnChange,
   dataFromEditor,
+  actions: { handleOnChange, handleFileUpload },
   dataImage,
-  handleFileUpload,
+  validationErrorsMessages,
 }) => {
   return (
     <section className={sass.GeneralForm}>
@@ -13,7 +13,7 @@ const GeneralForm = ({
         <img
           className={sass.Img}
           src={dataImage.content ? dataImage.content : plus}
-          alt=""
+          alt="draft image"
         />
         <p>
           {dataImage.name
@@ -28,6 +28,9 @@ const GeneralForm = ({
           placeholder="Cover_img"
           onChange={(e) => handleFileUpload(e.target.files[0])}
         />
+        {validationErrorsMessages.cover_img && (
+          <p className={sass.Validator}>{validationErrorsMessages.cover_img}</p>
+        )}
       </label>
       <input
         className={`${sass.Input} ${sass.Title}`}
@@ -38,6 +41,9 @@ const GeneralForm = ({
         value={dataFromEditor.title}
         onChange={(e) => handleOnChange("title", e.target.value)}
       />
+      {validationErrorsMessages.title && (
+        <p className={sass.Validator}>{validationErrorsMessages.title}</p>
+      )}
       <textarea
         className={`${sass.Input} ${sass.Description}`}
         type="text"
@@ -47,6 +53,36 @@ const GeneralForm = ({
         value={dataFromEditor.description}
         onChange={(e) => handleOnChange("description", e.target.value)}
       />
+      {validationErrorsMessages.description && (
+        <p className={sass.Validator}>{validationErrorsMessages.description}</p>
+      )}
+      <div className={sass.Is_Event}>
+        <p>
+          Этот пост объявление какого-то ивента ?<br />
+          <sup>
+            <i>Если да, поставьте checked и укажите дату ивента</i>
+          </sup>
+        </p>
+
+        <div className={sass.Question}>
+          {dataFromEditor.is_event && (
+            <input
+              type="datetime-local"
+              className={sass.Event_Time}
+              value={dataFromEditor.event_time}
+              onChange={(e) => handleOnChange("event_time", e.target.value)}
+            />
+          )}
+          <input
+            className={`${sass.Is_EventCheckbox}`}
+            type="checkbox"
+            name="is_event"
+            id="is_event"
+            checked={dataFromEditor.is_event}
+            onChange={(e) => handleOnChange("is_event", e.target.checked)}
+          />
+        </div>
+      </div>
     </section>
   );
 };

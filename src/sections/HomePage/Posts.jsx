@@ -6,17 +6,21 @@ import sass from "../../assets/styles/sections/HomePage/Posts.module.scss";
 import { sortData } from "../../utils/helpers";
 
 const Posts = ({ getData }) => {
-  return (
-    <section className={sass.Posts}>
-      {getData != [] ? (
-        sortData(getData, "byDate >").map((post) => (
+  if (!getData.length) {
+    return (
+      <section className={sass.Posts} >
+        <h1>Error</h1>
+      </section>
+    );
+  } else {
+    return (
+      <section className={sass.Posts}>
+        {sortData(getData, "byDate >").map((post) => (
           <Post postData={post} key={post.id} />
-        ))
-      ) : (
-        <h1>Error!</h1>
-      )}
-    </section>
-  );
+        ))}
+      </section>
+    );
+  }
 };
 
 export default Posts;
