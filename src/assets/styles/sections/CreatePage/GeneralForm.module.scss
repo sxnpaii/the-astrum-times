@@ -1,4 +1,7 @@
 .GeneralForm {
+  .Validator {
+    @apply text-[#ff0000] text-sm;
+  }
   .Input {
     @apply mx-auto w-full file:hidden bg-ReadableBgColor mb-3 focus:outline-none p-5 rounded-2xl;
   }
@@ -16,5 +19,17 @@
   }
   .Description {
     @apply resize-none min-h-[140px];
+  }
+  .Is_Event {
+    @apply flex justify-between max-md:flex-col items-center bg-ReadableBgColor rounded-2xl mb-5 p-4;
+    .Question {
+      @apply flex md:items-end items-start;
+      .Is_EventCheckbox {
+        @apply w-5 h-5;
+      }
+      .Event_Time {
+        @apply focus:outline-none;
+      }
+    }
   }
 }

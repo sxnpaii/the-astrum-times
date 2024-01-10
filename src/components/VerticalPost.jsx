@@ -7,7 +7,11 @@ const VerticalPost = ({ post }) => {
   return (
     <div className={sass.VerticalPost}>
       <Link to={`/events/${post.id}`} className={sass.ImgLink}>
-        <img src={post.cover_img.url} alt={post.cover_img.name} />
+        <img
+          src={post.cover_img.url}
+          alt={post.cover_img.name}
+          className={sass.Img}
+        />
       </Link>
       <div className={sass.Info}>
         <div className={sass.Event_Date}>

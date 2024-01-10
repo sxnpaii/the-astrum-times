@@ -1,15 +1,15 @@
 .Header {
-  @apply my-5 mb-10 relative;
+  @apply my-5 mb-20 relative;
   .LogoBar {
     @apply flex justify-between;
     .Date {
-      @apply font-Inter;
+      @apply font-Inter max-md:hidden;
     }
     .TheTitle {
       @apply absolute  text-center w-full font-OldEngTextMT text-HeadingTextColor no-underline sm:text-5xl text-3xl lg:text-7xl m-0 font-normal;
     }
     .Test {
-      @apply font-JetBrainsMono capitalize;
+      @apply font-JetBrainsMono capitalize max-md:hidden;
     }
   }
 }

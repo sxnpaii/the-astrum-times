@@ -1,3 +1,9 @@
 .Loading {
-  @apply text-5xl animate-pulse text-center w-full m-auto h-screen flex items-center justify-center;
+  @apply h-screen flex flex-col items-center justify-center;
+  .Animation{
+    @apply w-[150px];
+  }
+  .Text{
+    @apply font-Inter text-2xl animate-pulse text-center w-full mx-auto ;
+  }
 }

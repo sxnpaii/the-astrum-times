@@ -31,7 +31,7 @@ export const GetOneData = async (id) => {
 export const PostData = async (data) => {
   try {
     const raw = await addDoc(collection(db, "Posts"), data);
-    console.log(raw.id);
+    return raw;
   } catch (err) {
     console.error(err);
   }

@@ -1,7 +1,10 @@
 .PostPage {
-  @apply w-[50%] mx-auto my-32 font-Inter;
+  @apply lg:w-[50%] w-[80%] mx-auto my-32 font-Inter;
+  .Event_Time {
+    @apply block text-center text-2xl text-BasicTextColor;
+  }
   .Title {
-    @apply text-center text-6xl;
+    @apply text-center md:text-6xl text-3xl w-full break-words;
   }
   .Description {
     @apply text-BasicTextColor text-center max-w-[350px] mx-auto mb-10;

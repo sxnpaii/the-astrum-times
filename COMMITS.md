@@ -47,3 +47,13 @@
 - Formatted code with Prettier
 - Fixed styles
 - Edited Vite config
+
+### Commit from @sxnpaii
+
+- Fixed responsibility for devices
+- Fixed styles
+- Added `Dialog`component
+- Conditional renderings
+- Added route `events/:id`
+- Modified `Loading` component
+- Moved `.IsEvent` section in `create` page to `GeneralForm` component

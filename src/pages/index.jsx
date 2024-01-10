@@ -10,7 +10,7 @@ import Loading from "../components/Loading";
 import sass from "../assets/styles/pages/HomePage.module.scss";
 
 const HomePage = () => {
-  const [getData, setGettingData] = useState([]);
+  const [getData, setGettingData] = useState();
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     const fetchData = async () => {
@@ -26,16 +26,18 @@ const HomePage = () => {
     // console.log(getData)
   }, []);
 
-  return isLoading ? (
-    <Loading />
-  ) : (
-    <Layout className={sass.HomePageLayer}>
+  if (getData) {
+    return (
+      <Layout className={sass.HomePageLayer}>
       {/* sections */}
       <Posts getData={getData.filter((el) => !el.is_event)} />
 
       <RightSide events={getData.filter((el) => el.is_event)} />
     </Layout>
-  );
+    );
+  } else {
+    return isLoading ? <Loading isLoading={isLoading}/> : <h1>Error</h1>;
+  }
 };
 
 export default HomePage;

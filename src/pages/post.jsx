@@ -12,11 +12,14 @@ import moment from "moment";
 const PostPage = () => {
   const { id } = useParams();
   const [getOneRec, setGettingOneRec] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
       try {
+        setIsLoading(true);
         setGettingOneRec(await GetOneData(id));
+        setIsLoading(false);
       } catch (err) {
         console.error(err);
       }
@@ -27,6 +30,7 @@ const PostPage = () => {
   if (getOneRec) {
     return (
       <Layout className={sass.PostPage}>
+        {getOneRec.is_event && <b className={sass.Event_Time}>Event time: {moment(getOneRec.event_time).format("MMMM Do YYYY, h:mm:ss a")}</b>}
         <h1 className={sass.Title}>{getOneRec.title}</h1>
         <h6 className={sass.Description}>{getOneRec.description}</h6>
         <p className={sass.Published_Date}>
@@ -36,13 +40,14 @@ const PostPage = () => {
           className={sass.Cover_Img}
           src={getOneRec.cover_img.url}
           alt={getOneRec.title}
+          loading="lazy"
         />
         <Editorjs content={getOneRec.content} ReadOnly />
         <style>{styles}</style>
       </Layout>
     );
   } else {
-    return <Loading status={getOneRec} />;
+    return isLoading ? <Loading isLoading={isLoading} /> : <h1>Error</h1>;
   }
 };
 

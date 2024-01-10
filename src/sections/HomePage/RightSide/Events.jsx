@@ -27,7 +27,7 @@ const Events = ({ events }) => {
           modules={[Pagination, Autoplay]}
         >
           {/* filter data */}
-          {events != [] ? (
+          {events.length ? (
             events
               .filter((el) => new Date(el.event_time).getTime() > TODAY)
               .map((event) => (
@@ -44,7 +44,7 @@ const Events = ({ events }) => {
       <hr className="my-5" />
       <section className={sass.PastEvents}>
         <h4 className={sass.Heading}>Past Events</h4>
-        {events != [] ? (
+        {events.length ? (
           events
             .filter((el) => new Date(el.event_time).getTime() < TODAY)
             .map((el) => (

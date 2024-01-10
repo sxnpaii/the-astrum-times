@@ -27,6 +27,7 @@ const Post = ({ postData, isMiniPost, isEvent }) => {
           src={postData.cover_img.url}
           alt={postData.title}
           className={sass.Cover_img}
+          loading="lazy"
         />
       </Link>
     </div>

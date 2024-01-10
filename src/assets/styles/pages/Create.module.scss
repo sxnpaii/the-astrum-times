@@ -1,27 +1,19 @@
 .Create {
   @apply mx-auto font-Inter;
-  code,
-  pre {
-    @apply font-JetBrainsMono;
-  }
+
   .Layer {
     @apply flex flex-col max-w-[800px] mx-auto;
-
-    .Is_Event {
-      @apply flex justify-between bg-ReadableBgColor rounded-2xl  mb-5 p-4;
-      .Question {
-        @apply flex flex-col items-end;
-        .Is_EventCheckbox {
-          @apply w-5 h-5;
-        }
-        .Event_Time {
-          @apply focus:outline-none;
-        }
-      }
+    .Validator {  
+      @apply text-[#ff0000];
     }
     .Content {
       @apply w-full bg-ReadableBgColor rounded-2xl py-4 px-8;
       background: linear-gradient(180deg, #f7f7f5, #fff);
+      code,
+      pre,
+      textarea {
+        @apply font-JetBrainsMono;
+      }
     }
 
     .Actions {
