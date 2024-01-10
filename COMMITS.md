@@ -57,3 +57,7 @@
 - Added route `events/:id`
 - Modified `Loading` component
 - Moved `.IsEvent` section in `create` page to `GeneralForm` component
+
+#### Commit from @sxnpaii
+
+- config for Vercel
