@@ -1,8 +1,16 @@
-# React + Vite
+_**The project, now in active development !!**_
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# The Astrum News
 
-Currently, two official plugins are available:
+Mini newspaper like blog web-site for in Astrum academy.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Astrum akademiyasidagi yangiliklarni va o’zgarishlarni yoritib boruvchi sayt-gazetadur. Va bu sayt akademiyadagi tabdirlarni, hakatonlarni, kontestlarni, yangi va boshqa o’quvchilar uchun to’garak dars soatlarini va mentorlarini, hamkor tashkilot, korporatsiyalarning vakansiyalarini o’z ichiga oladi. ([_from technical documentation of project_](https://www.notion.so/sxnpaii/Texnik-vazifa-The-Astrum-News-a8680eba433444b4bcc08c076d34ed82?pvs=4#c1386b21098e4694bbacdca436ad6fbb))
+
+## Tech. stack
+
+- React
+- Firebase
+- Tailwindcss, Scss
+- Editorjs
+
+###### _**Netrunners** group and [Sxnpaii](https://sxnpaii.uz)_

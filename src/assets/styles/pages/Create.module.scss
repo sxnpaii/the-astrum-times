@@ -1,0 +1,29 @@
+.Create {
+  @apply mx-auto font-Inter;
+
+  .Layer {
+    @apply flex flex-col max-w-[800px] mx-auto;
+    .Validator {  
+      @apply text-[#ff0000];
+    }
+    .Content {
+      @apply w-full bg-ReadableBgColor rounded-2xl py-4 px-8;
+      background: linear-gradient(180deg, #f7f7f5, #fff);
+      code,
+      pre,
+      textarea {
+        @apply font-JetBrainsMono;
+      }
+    }
+
+    .Actions {
+      @apply flex items-center mt-10 gap-5;
+      .Btn {
+        @apply block text-BasicTextColor w-1/2 py-6 border rounded-2xl;
+      }
+      .ActiveBtn {
+        @apply block text-ReadableBgColor bg-BasicTextColor w-1/2 border py-6 rounded-2xl;
+      }
+    }
+  }
+}

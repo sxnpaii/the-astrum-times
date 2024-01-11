@@ -1,0 +1,35 @@
+.GeneralForm {
+  .Validator {
+    @apply text-[#ff0000] text-sm;
+  }
+  .Input {
+    @apply mx-auto w-full file:hidden bg-ReadableBgColor mb-3 focus:outline-none p-5 rounded-2xl;
+  }
+  .Cover_img {
+    @apply flex flex-col items-center justify-center text-3xl  bg-ReadableBgColor relative min-h-[100px] rounded-2xl mb-5 p-4 overflow-hidden border;
+    .Img {
+      @apply min-w-[50px] rounded-2xl;
+    }
+    &_Input {
+      @apply absolute w-full h-full opacity-0 cursor-grab;
+    }
+  }
+  .Title {
+    @apply font-Georgia font-bold;
+  }
+  .Description {
+    @apply resize-none min-h-[140px];
+  }
+  .Is_Event {
+    @apply flex justify-between max-md:flex-col items-center bg-ReadableBgColor rounded-2xl mb-5 p-4;
+    .Question {
+      @apply flex md:items-end items-start;
+      .Is_EventCheckbox {
+        @apply w-5 h-5;
+      }
+      .Event_Time {
+        @apply focus:outline-none;
+      }
+    }
+  }
+}
