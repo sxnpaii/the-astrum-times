@@ -19,11 +19,12 @@ const Events = ({ events }) => {
           slidesPerView={1}
           slidesPerGroup={1}
           pagination={true}
+          autoHeight={true}
           loop={true}
-          // autoplay={{
-          //   disableOnInteraction: false,
-          //   delay: 2700
-          // }}
+          autoplay={{
+            disableOnInteraction: false,
+            delay: 2700,
+          }}
           modules={[Pagination, Autoplay]}
         >
           {/* filter data */}

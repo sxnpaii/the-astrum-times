@@ -1,6 +1,10 @@
 import sass from "../assets/styles/components/Dialog.module.scss";
 
 const Dialog = ({ message = "", funcs, states, isInfo }) => {
+  const handleClick = () => {
+    funcs.Ok();
+    states.setIsDialogOpen(false);
+  };
   if (states.isDialogOpen) {
     return (
       <div className={sass.Dialog}>
@@ -22,7 +26,7 @@ const Dialog = ({ message = "", funcs, states, isInfo }) => {
             )}
           </div>
           <div className={sass.Actions}>
-            {!isInfo && funcs ? (
+            {!isInfo ? (
               <div className={sass.Actions}>
                 <button
                   className={sass.Btn}
@@ -33,12 +37,7 @@ const Dialog = ({ message = "", funcs, states, isInfo }) => {
                 >
                   Cancel
                 </button>
-                <button
-                  className={sass.ActiveBtn}
-                  onClick={() => 
-                    states.setIsDialogOpen(false) && funcs.Ok
-                  }
-                >
+                <button className={sass.ActiveBtn} onClick={handleClick}>
                   OK
                 </button>
               </div>
