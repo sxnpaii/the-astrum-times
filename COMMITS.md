@@ -61,3 +61,8 @@
 #### Commit from @sxnpaii
 
 - config for Vercel
+
+#### Commit from @sxnpaii
+
+- Hotfix `Dialog` component conditions problem
+- added some styles to `Dialog` component

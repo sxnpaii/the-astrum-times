@@ -223,12 +223,9 @@ const Create = () => {
       {/*Dialog for fresh post link */}
       <Dialog
         states={{ isDialogOpen, setIsDialogOpen }}
-        message={dataFromServer}
-        isInfo={true}
-      />
-      <Dialog
-        states={{ isDialogOpen, setIsDialogOpen }}
-        funcs={{ Cancel: "", Ok: validationErrors == {} ? handleSave : null }}
+        message={dataFromServer ? dataFromServer : false}
+        funcs={!dataFromServer ? { Cancel: "", Ok: handleSave } : false}
+        isInfo={dataFromServer}
       />
     </Layout>
   );
