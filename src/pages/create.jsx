@@ -174,12 +174,12 @@ const Create = () => {
       },
       title: "",
       description: "",
-      content: "",
+      content: {},
       is_event: false,
       event_time: "",
     });
     // from Editor
-    setEditorjsValue(dataFromEditor.content);
+    setEditorjsValue({});
     window.location.reload();
   };
 
