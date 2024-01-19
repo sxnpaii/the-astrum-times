@@ -2,7 +2,7 @@ import Header from "../components/Header";
 
 const Layout = ({ className, children }) => {
   return (
-    <main className={`sm:mx-7 mx-3`}>
+    <main className={`lg:px-7 px-4 w-full`}>
       <Header />
       <main className={className}>{children}</main>
     </main>

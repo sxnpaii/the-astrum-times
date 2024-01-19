@@ -1,9 +1,9 @@
 .VerticalPost {
-  @apply border mb-10 pb-10;
+  @apply w-full border mb-10 pb-10;
   .ImgLink {
-    @apply inline-block mb-4 w-full;
+    @apply inline-block mb-4;
     .Img {
-      @apply w-full;
+      @apply inline-block ;
     }
   }
   .Info {
