@@ -1,9 +1,9 @@
 .Post {
   @apply w-full flex justify-between gap-5 max-md:flex-wrap border-t border-t-BasicTextColor border-opacity-50 py-5 mb-3;
   .Info {
-    @apply md:min-w-[35%];
+    @apply md:max-w-[50%];
     .Title {
-      @apply font-bold font-Georgia text-3xl mb-3;
+      @apply inline-block font-bold font-Georgia text-3xl mb-3 hover:underline transition;
     }
     .Description {
       @apply font-Inter text-BasicTextColor mb-5;
@@ -13,7 +13,7 @@
     }
   }
   .Link {
-    @apply md:max-w-[50%];
+    @apply md:w-[50%];
     .Cover_img {
       @apply w-full;
     }

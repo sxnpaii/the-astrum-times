@@ -14,10 +14,18 @@ const Events = ({ events }) => {
       <section className={`${sass.UpcomingEvents}`}>
         <h4 className={sass.Heading}>Upcoming Events</h4>
         <Swiper
-          className={`mySwiper `}
+          className={`mySwiper`}
           spaceBetween={30}
           slidesPerView={1}
           slidesPerGroup={1}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 1,
+            },
+          }}
           pagination={true}
           autoHeight={true}
           loop={true}

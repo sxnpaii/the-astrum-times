@@ -66,3 +66,9 @@
 
 - Hotfix `Dialog` component conditions problem
 - added some styles to `Dialog` component
+
+#### Commit from @sxnpaii
+
+- Fixed responsive styles, for example margins and paddings
+- Slider responsibility changes
+- Changed name and secreted `create` page route

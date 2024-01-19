@@ -13,7 +13,12 @@ const Post = ({ postData, isMiniPost, isEvent }) => {
             <p>{moment(postData.event_time).format("h:mm a, MMMM Do YYYY")}</p>
           </div>
         ) : null}
-        <h6 className={sass.Title}>{postData.title}</h6>
+        <Link
+          to={`/${isEvent ? "events" : "posts"}/${postData.id}`}
+          className={sass.Title}
+        >
+          {postData.title}
+        </Link>
         <p className={sass.Description}>{postData.description}</p>
         <p className={sass.Published_Date}>
           {moment(postData.published_date).fromNow()}

@@ -30,18 +30,25 @@ const PostPage = () => {
   if (getOneRec) {
     return (
       <Layout className={sass.PostPage}>
-        {getOneRec.is_event && <b className={sass.Event_Time}>Event time: {moment(getOneRec.event_time).format("MMMM Do YYYY, h:mm:ss a")}</b>}
-        <h1 className={sass.Title}>{getOneRec.title}</h1>
-        <h6 className={sass.Description}>{getOneRec.description}</h6>
-        <p className={sass.Published_Date}>
-          {moment(getOneRec.published_date).format("MMMM Do YYYY, h:mm:ss a")}
-        </p>
-        <img
-          className={sass.Cover_Img}
-          src={getOneRec.cover_img.url}
-          alt={getOneRec.title}
-          loading="lazy"
-        />
+        <div className={sass.MetaInfo}>
+          {getOneRec.is_event && (
+            <b className={sass.Event_Time}>
+              Event time:{" "}
+              {moment(getOneRec.event_time).format("MMMM Do YYYY, h:mm:ss a")}
+            </b>
+          )}
+          <h1 className={sass.Title}>{getOneRec.title}</h1>
+          <h6 className={sass.Description}>{getOneRec.description}</h6>
+          <p className={sass.Published_Date}>
+            {moment(getOneRec.published_date).format("MMMM Do YYYY, h:mm:ss a")}
+          </p>
+          <img
+            className={sass.Cover_Img}
+            src={getOneRec.cover_img.url}
+            alt={getOneRec.title}
+            loading="lazy"
+          />
+        </div>
         <Editorjs content={getOneRec.content} ReadOnly />
         <style>{styles}</style>
       </Layout>
