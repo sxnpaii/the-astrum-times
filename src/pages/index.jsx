@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { GetAllData } from "../firebase/Requests";
 // sections
-import Layout from "../layouts/Layout";
 import Posts from "../sections/HomePage/Posts";
 import RightSide from "../sections/HomePage/RightSide";
 import Loading from "../components/Loading";
@@ -28,12 +27,12 @@ const HomePage = () => {
 
   if (getData) {
     return (
-      <Layout className={sass.HomePageLayer}>
+      <main className={sass.HomePageLayer}>
       {/* sections */}
       <Posts getData={getData.filter((el) => !el.is_event)} />
 
       <RightSide events={getData.filter((el) => el.is_event)} />
-    </Layout>
+    </main>
     );
   } else {
     return isLoading ? <Loading isLoading={isLoading}/> : <h1>Error</h1>;

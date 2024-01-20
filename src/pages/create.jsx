@@ -6,7 +6,6 @@ import { PostData } from "../firebase/Requests";
 import { UploadImage } from "../firebase/StorageQueries";
 import Editorjs from "../editorjs/Editorjs";
 // components
-import Layout from "../layouts/Layout";
 import GeneralForm from "../sections/CreatePage/GeneralForm";
 // styles
 import sass from "../assets/styles/pages/Create.module.scss";
@@ -186,7 +185,7 @@ const Create = () => {
   return isLoading ? (
     <Loading isLoading={isLoading} />
   ) : (
-    <Layout className={sass.Create}>
+    <main className={sass.Create}>
       <div className={sass.Layer}>
         <GeneralForm
           dataFromEditor={dataFromEditor}
@@ -227,7 +226,7 @@ const Create = () => {
         funcs={!dataFromServer ? { Cancel: "", Ok: handleSave } : false}
         isInfo={dataFromServer}
       />
-    </Layout>
+    </main>
   );
 };
 

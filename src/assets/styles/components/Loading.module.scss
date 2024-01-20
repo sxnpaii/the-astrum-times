@@ -1,9 +1,9 @@
 .Loading {
-  @apply h-screen flex flex-col items-center justify-center;
-  .Animation{
+  @apply absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center bg-ReadableBgColor;
+  .Animation {
     @apply w-[150px];
   }
-  .Text{
-    @apply font-Inter text-2xl animate-pulse text-center w-full mx-auto ;
+  .Text {
+    @apply font-Inter text-2xl animate-pulse text-center w-full mx-auto;
   }
 }

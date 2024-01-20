@@ -1,4 +1,3 @@
-import Layout from "../layouts/Layout";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { GetOneData } from "../firebase/Requests";
@@ -29,7 +28,7 @@ const PostPage = () => {
 
   if (getOneRec) {
     return (
-      <Layout className={sass.PostPage}>
+      <main className={sass.PostPage}>
         <div className={sass.MetaInfo}>
           {getOneRec.is_event && (
             <b className={sass.Event_Time}>
@@ -51,7 +50,7 @@ const PostPage = () => {
         </div>
         <Editorjs content={getOneRec.content} ReadOnly />
         <style>{styles}</style>
-      </Layout>
+      </main>
     );
   } else {
     return isLoading ? <Loading isLoading={isLoading} /> : <h1>Error</h1>;
