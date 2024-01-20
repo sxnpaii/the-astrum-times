@@ -72,3 +72,7 @@
 - Fixed responsive styles, for example margins and paddings
 - Slider responsibility changes
 - Changed name and secreted `create` page route
+
+#### Commit from @sxnpaii
+
+- Renamed project
