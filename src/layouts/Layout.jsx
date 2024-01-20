@@ -1,10 +1,11 @@
+import { Outlet } from "react-router";
 import Header from "../components/Header";
 
-const Layout = ({ className, children }) => {
+const Layout = () => {
   return (
     <main className={`lg:px-7 px-4 w-full`}>
       <Header />
-      <main className={className}>{children}</main>
+      <Outlet />
     </main>
   );
 };

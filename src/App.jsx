@@ -1,17 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// pages
-import HomePage from "./pages";
-import PostPage from "./pages/post";
-import { ImportFonts } from "./assets/styles/Basics";
-import Create from "./pages/create";
-
-const CreatePageUrl = import.meta.env.VITE_CREATEPAGE_URL;
 // routes
+import { ImportFonts } from "./assets/styles/Basics";
+import Layout from "./layouts/Layout";
+import { routes } from "./utils/routes";
+
+// router
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage />, index: true },
-  { path: `/${CreatePageUrl}`, element: <Create /> },
-  { path: "/posts/:id", element: <PostPage /> },
-  { path: "/events/:id", element: <PostPage /> },
+  {
+    path: "/",
+    element: <Layout />,
+    children: routes.map((route) => ({
+      path: route.path,
+      element: route.element,
+    })),
+  },
 ]);
 
 function App() {

@@ -76,3 +76,8 @@
 #### Commit from @sxnpaii
 
 - Renamed project
+
+#### Commit from @sxnpaii
+
+- Changed `Layout` component structure
+- Moved routes from `App.jsx` to `routes.jsx` new file
