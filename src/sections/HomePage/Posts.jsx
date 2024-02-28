@@ -4,13 +4,12 @@ import Post from "../../components/Post";
 // styles
 import sass from "../../assets/styles/sections/HomePage/Posts.module.scss";
 import { sortData } from "../../utils/helpers";
+import NotFound from "../../components/NotFound";
 
 const Posts = ({ getData }) => {
   if (!getData.length) {
     return (
-      <section className={sass.Posts} >
-        <h1>Error</h1>
-      </section>
+      <NotFound message={"Posts not Found"}/>
     );
   } else {
     return (

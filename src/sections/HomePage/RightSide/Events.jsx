@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
@@ -7,6 +6,7 @@ import "swiper/css/pagination";
 import sass from "../../../assets/styles/sections/HomePage/RightSide/Events.module.scss";
 import VerticalPost from "../../../components/VerticalPost";
 import Post from "../../../components/Post";
+import NotFound from "../../../components/NotFound";
 const Events = ({ events }) => {
   const TODAY = Date.now();
   return (
@@ -45,7 +45,7 @@ const Events = ({ events }) => {
                 </SwiperSlide>
               ))
           ) : (
-            <p>Events not found</p>
+            <NotFound message={"Events not Found"}/>
           )}
         </Swiper>
       </section>
@@ -65,8 +65,8 @@ const Events = ({ events }) => {
               />
             ))
         ) : (
-          <p> Events not found</p>
-        )}
+          <NotFound message={"Events not Found"}/>
+          )}
       </section>
     </section>
   );

@@ -81,3 +81,8 @@
 
 - Changed `Layout` component structure
 - Moved routes from `App.jsx` to `routes.jsx` new file
+
+#### Commit from @sxnpaii
+
+- Error messages changed
+- Created `NotFound` component

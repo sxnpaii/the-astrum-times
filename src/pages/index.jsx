@@ -4,7 +4,8 @@ import { GetAllData } from "../firebase/Requests";
 import Posts from "../sections/HomePage/Posts";
 import RightSide from "../sections/HomePage/RightSide";
 import Loading from "../components/Loading";
-
+// components
+import NotFound from "../components/NotFound";
 // styles
 import sass from "../assets/styles/pages/HomePage.module.scss";
 
@@ -28,14 +29,17 @@ const HomePage = () => {
   if (getData) {
     return (
       <main className={sass.HomePageLayer}>
-      {/* sections */}
-      <Posts getData={getData.filter((el) => !el.is_event)} />
-
-      <RightSide events={getData.filter((el) => el.is_event)} />
-    </main>
+        {/* sections */}
+        <Posts getData={getData.filter((el) => !el.is_event)} />
+        <RightSide events={getData.filter((el) => el.is_event)} />
+      </main>
     );
   } else {
-    return isLoading ? <Loading isLoading={isLoading}/> : <h1>Error</h1>;
+    return isLoading ? (
+      <Loading isLoading={isLoading} />
+    ) : (
+      <NotFound message="Nothing Found || Error" />
+    );
   }
 };
 
