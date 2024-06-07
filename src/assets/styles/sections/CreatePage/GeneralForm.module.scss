@@ -15,13 +15,13 @@
     }
   }
   .Title {
-    @apply font-Georgia font-bold;
+    @apply font-Georgia font-bold border;
   }
   .Description {
-    @apply resize-none min-h-[140px];
+    @apply resize-none min-h-[140px] border;
   }
   .Is_Event {
-    @apply flex justify-between max-md:flex-col items-center bg-ReadableBgColor rounded-2xl mb-5 p-4;
+    @apply flex justify-between max-md:flex-col items-center bg-ReadableBgColor rounded-2xl mb-5 p-4 border;
     .Question {
       @apply flex md:items-end items-start;
       .Is_EventCheckbox {

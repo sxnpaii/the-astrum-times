@@ -1,0 +1,26 @@
+.quill {
+  @apply  rounded-xl;
+  .ql-toolbar {
+    @apply w-full sticky top-0 z-10 bg-[#c5bcbc]  border-none rounded-xl ;
+  }
+  .ql-container {
+    @apply min-h-[300px] text-base font-Inter border-none;
+    .ql-editor {
+      img {
+        @apply w-full my-5;
+      }
+      iframe {
+        @apply w-full h-[400px];
+      }
+      .ql-font-serif {
+        @apply font-Georgia;
+      }
+      .ql-font-monospace {
+        @apply font-JetBrainsMono;
+      }
+      blockquote {
+        @apply rounded-none italic font-Georgia;
+      }
+    }
+  }
+}

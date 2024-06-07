@@ -1,16 +1,19 @@
 // react build-in hooks, components, functions
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 // editorjs tools and components
-import { DragDrop, Undo } from "../editorjs/editortools";
 import { PostData } from "../firebase/Requests";
-import { UploadImage } from "../firebase/StorageQueries";
-import Editorjs from "../editorjs/Editorjs";
+import {
+  UploadImage,
+  replaceBase64ImagesWithUrls,
+} from "../firebase/StorageQueries";
+import Quill from "../editorjs/Quill";
 // components
 import GeneralForm from "../sections/CreatePage/GeneralForm";
 // styles
 import sass from "../assets/styles/pages/Create.module.scss";
 import Loading from "../components/Loading";
 import Dialog from "../components/Dialog";
+import { docxTOHtml, extractBase64Images } from "../utils/fileReaders";
 
 // Create page
 const Create = () => {
@@ -27,76 +30,54 @@ const Create = () => {
   const [validationErrors, setValidationErrors] = useState({});
   // Getting draft data stored in localStorage
   const draft = JSON.parse(localStorage.getItem("draft"));
-
-  // set default data for first time usage to localStorage
+  // state for collecting draft
   localStorage.setItem(
     "draft",
     JSON.stringify({
-      cover_img: {
-        name: "",
-        url: "",
-        content: "",
-      },
       title: "",
       description: "",
       content: "",
       is_event: false,
       event_time: "",
-      // published_date: new Date()
+      published_date: new Date().toISOString(),
+      cover_img: {
+        url: "",
+        content: "",
+        name: "",
+      },
     })
   );
-
-  // state for collecting draft
   const [dataFromEditor, setDataFromEditor] = useState({
     ...draft,
   });
-
-  // EditorJs value state
-  const [editorjsValue, setEditorjsValue] = useState(draft.content || "");
-
   // effects
   useEffect(() => {
-    // confirmation if user need reload
-    window.onbeforeunload = () => "Are you sure !?";
     // sync state and localStorage and collecting to one object
     localStorage.setItem(
       "draft",
       JSON.stringify({
         ...dataFromEditor,
-        content: editorjsValue,
       })
     );
-  }, [editorjsValue, dataFromEditor, draft]);
+  }, [dataFromEditor, draft]);
 
   // editor functions
   const editorCore = useRef();
-  const handleInitialize = useCallback((instance) => {
-    editorCore.current = instance;
-  }, []);
-
-  // set Undo Redo plugins on ready
-  const handleReady = () => {
-    const editor = editorCore.current._editorJS;
-    new Undo({ editor });
-    new DragDrop(editor);
-  };
-
   // set to state editorjs value and to localstorage
-  const onChange = async () => {
-    const raw = await editorCore.current.save();
-    setEditorjsValue(raw);
+  const onChange = () => {
+    if (editorCore !== null) {
+      const raw = editorCore.current?.value;
+      setDataFromEditor((prev) => ({ ...prev, content: raw }));
+    }
   };
 
   // function for collecting title description and event time data
-  const handleOnChange = useCallback(
-    (key, value) => {
-      setDataFromEditor({
-        ...dataFromEditor,
-        [key]: value,
-      });
-    },
-    [dataFromEditor]
-  );
+  const handleOnChange = (key, value) => {
+    setDataFromEditor({
+      ...dataFromEditor,
+      [key]: value,
+    });
+  };
 
   // File uploading func to keep in browser
   const handleFileUpload = (file) => {
@@ -126,7 +107,7 @@ const Create = () => {
       if (!dataFromEditor.description) {
         errors.description = "Description is required";
       }
-      if (!dataFromEditor.content.blocks) {
+      if (!dataFromEditor.content) {
         errors.content = "Content is required";
       }
       if (!dataFromEditor.cover_img.content && !dataFromEditor.cover_img.name) {
@@ -138,26 +119,37 @@ const Create = () => {
         return;
       }
       setValidationErrors({});
-
       // upload and send to db
       setIsLoading(true);
+
+      // cover img
       const fromStorage = await UploadImage(dataFromEditor.cover_img);
+      // propers
       const draft_raw = JSON.parse(localStorage.getItem("draft"));
+      // convert images
+      let base64Arr = extractBase64Images(dataFromEditor.content);
+      const withUrlImages = await replaceBase64ImagesWithUrls(
+        dataFromEditor.content,
+        base64Arr
+      );
       setDataFromServer(
         await PostData({
           ...draft_raw,
+          content: withUrlImages,
           cover_img: {
             name: fromStorage.name,
             url: fromStorage.url,
           },
-          published_date: new Date(Date.now()).toISOString(),
+          published_date: new Date().toISOString(),
         })
       );
+      // clearing draft
       localStorage.removeItem("draft");
       setIsLoading(false);
       setIsDialogOpen(true);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
 
@@ -173,13 +165,18 @@ const Create = () => {
       },
       title: "",
       description: "",
-      content: {},
+      content: "",
       is_event: false,
       event_time: "",
     });
-    // from Editor
-    setEditorjsValue({});
-    window.location.reload();
+  };
+
+  const importDocx = async (file) => {
+    const docxHtml = await docxTOHtml(file);
+    setDataFromEditor((prev) => ({
+      ...prev,
+      content: docxHtml,
+    }));
   };
 
   return isLoading ? (
@@ -193,18 +190,22 @@ const Create = () => {
           dataImage={dataFromEditor.cover_img}
           validationErrorsMessages={validationErrors}
         />
-
         <div className={sass.Content}>
-          <i>Редактор всё ещё в тестовом режиме... </i>
           {validationErrors.content && (
             <p className={sass.Validator}>{validationErrors.content}</p>
           )}
-          <Editorjs
+          <Quill
             onChange={onChange}
-            handleInitialize={handleInitialize}
-            handleReady={handleReady}
-            onref={editorCore}
+            ref={editorCore}
             content={dataFromEditor.content}
+          />
+        </div>
+
+        <div className="importing">
+          <input
+            type="file"
+            onChange={(el) => importDocx(el.target.files[0])}
+            accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
           />
         </div>
         <div className={sass.Actions}>

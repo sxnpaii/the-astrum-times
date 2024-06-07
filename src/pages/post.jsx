@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { GetOneData } from "../firebase/Requests";
-import Editorjs from "../editorjs/Editorjs";
+import Editorjs from "../editorjs/Quill";
 
 import { styles } from "../assets/styles/Basics";
 import sass from "../assets/styles/pages/Post.module.scss";
@@ -24,7 +24,7 @@ const PostPage = () => {
       }
     };
     getData();
-  }, []);
+  }, [id]);
 
   if (getOneRec) {
     return (
@@ -48,7 +48,10 @@ const PostPage = () => {
             loading="lazy"
           />
         </div>
-        <Editorjs content={getOneRec.content} ReadOnly />
+        <Editorjs
+          content={getOneRec.content}
+          ReadOnly
+        />
         <style>{styles}</style>
       </main>
     );

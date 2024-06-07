@@ -25,6 +25,7 @@ const GeneralForm = ({
           type="file"
           name="cover_img"
           required
+          accept="image/*"
           placeholder="Cover_img"
           onChange={(e) => handleFileUpload(e.target.files[0])}
         />

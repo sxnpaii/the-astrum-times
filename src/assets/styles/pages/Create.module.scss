@@ -3,17 +3,12 @@
 
   .Layer {
     @apply flex flex-col max-w-[800px] mx-auto;
-    .Validator {  
+    .Validator {
       @apply text-[#ff0000];
     }
     .Content {
-      @apply w-full bg-ReadableBgColor rounded-2xl py-4 px-8;
-      background: linear-gradient(180deg, #f7f7f5, #fff);
-      code,
-      pre,
-      textarea {
-        @apply font-JetBrainsMono;
-      }
+      @apply w-full rounded-2xl bg-ReadableBgColor;
+  
     }
 
     .Actions {
