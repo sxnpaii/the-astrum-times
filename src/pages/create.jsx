@@ -121,7 +121,6 @@ const Create = () => {
       setValidationErrors({});
       // upload and send to db
       setIsLoading(true);
-
       // cover img
       const fromStorage = await UploadImage(dataFromEditor.cover_img);
       // propers
@@ -130,12 +129,13 @@ const Create = () => {
       let base64Arr = extractBase64Images(dataFromEditor.content);
       const withUrlImages = await replaceBase64ImagesWithUrls(
         dataFromEditor.content,
-        base64Arr
+        base64Arr,
       );
       setDataFromServer(
         await PostData({
           ...draft_raw,
-          content: withUrlImages,
+          content: withUrlImages.updatedHtmlString,
+          imageRefs: withUrlImages.imageRefPaths,
           cover_img: {
             name: fromStorage.name,
             url: fromStorage.url,

@@ -1,5 +1,6 @@
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
 import { storage } from "../config/firebase";
+import { v4 } from "uuid";
 
 // upload file
 const UploadImage = async (file) => {
@@ -20,24 +21,32 @@ const UploadImage = async (file) => {
 };
 
 const replaceBase64ImagesWithUrls = async (htmlString, base64Images) => {
-  let updatedHtmlString = htmlString;
+  const fallbackValues = {
+    updatedHtmlString: htmlString,
+    imageRefPaths: [],
+  };
   try {
+    const FolderID = v4();
     for (const base64Image of base64Images) {
-      const imageRef = ref(storage, `post_content/${new Date().toISOString()}`);
+      const imageRef = ref(
+        storage,
+        `post_content/${FolderID}/${new Date().toISOString()}`
+      );
       await uploadString(imageRef, base64Image, "data_url").then((snap) => {
-        console.log(snap);
+        fallbackValues.imageRefPaths.push(snap.ref._location.path);
       });
       let imageUrl = "";
       await getDownloadURL(imageRef).then((url) => {
         return (imageUrl = url);
       });
-      updatedHtmlString = updatedHtmlString.replace(base64Image, imageUrl);
+      fallbackValues.updatedHtmlString =
+        fallbackValues.updatedHtmlString.replace(base64Image, imageUrl);
     }
   } catch (err) {
     throw new Error(err);
   }
 
-  return updatedHtmlString;
+  return fallbackValues;
 };
 
 export { replaceBase64ImagesWithUrls, UploadImage };

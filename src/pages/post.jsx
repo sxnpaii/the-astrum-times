@@ -48,9 +48,11 @@ const PostPage = () => {
             loading="lazy"
           />
         </div>
+        
         <Editorjs
           content={getOneRec.content}
           ReadOnly
+          className={sass.Content}
         />
         <style>{styles}</style>
       </main>
