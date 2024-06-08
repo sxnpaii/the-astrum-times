@@ -129,7 +129,7 @@ const Create = () => {
       let base64Arr = extractBase64Images(dataFromEditor.content);
       const withUrlImages = await replaceBase64ImagesWithUrls(
         dataFromEditor.content,
-        base64Arr,
+        base64Arr
       );
       setDataFromServer(
         await PostData({
@@ -201,9 +201,11 @@ const Create = () => {
           />
         </div>
 
-        <div className="importing">
+        <div className={sass.ImportDocx}>
+          <i>Alternatively, import post from a .DOCX file</i>
           <input
             type="file"
+            className={sass.Input}
             onChange={(el) => importDocx(el.target.files[0])}
             accept="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
           />

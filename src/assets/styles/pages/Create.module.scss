@@ -8,7 +8,12 @@
     }
     .Content {
       @apply w-full rounded-2xl bg-ReadableBgColor;
-  
+    }
+    .ImportDocx {
+      @apply w-full  mt-5 ;
+      .Input {
+        @apply file:hidden cursor-pointer p-5 bg-ReadableBgColor border rounded-xl w-full ;
+      }
     }
 
     .Actions {
