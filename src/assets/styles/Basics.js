@@ -20,37 +20,37 @@ export const ImportFonts = `
 `;
 
 export const styles = `
-h1 {
+h1:not(.title + .description) {
   display: block;
   font-weight: bold;
   font-size: 46px;
   margin-top: 30px
 }
-h2 {
+h2:not(.title + .description)  {
   display: block;
   font-weight: bold;
   font-size: 40px;
   margin-top: 30px
 }
-h3 {
+h3:not(.title + .description)  {
   display: block;
   font-weight: bold;
   font-size: 34px;
   margin-top: 30px
 }
-h4 {
+h4:not(.title + .description)  {
   display: block;
   font-weight: bold;
   font-size: 28px;
   margin-top: 30px
 }
-h5 {
+h5:not(.title + .description)  {
   display: block;
   font-weight: bold;
   font-size: 22px;
   margin-top: 30px
 }
-h6 {
+h6:not(.title + .description)  {
   display: block;
   font-weight: bold;
   font-size: 16px;

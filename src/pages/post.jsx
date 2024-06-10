@@ -36,19 +36,25 @@ const PostPage = () => {
               {moment(getOneRec.event_time).format("MMMM Do YYYY, h:mm:ss a")}
             </b>
           )}
-          <h1 className={sass.Title}>{getOneRec.title}</h1>
-          <h6 className={sass.Description}>{getOneRec.description}</h6>
+          <h2 className={`${sass.Title} title`}>{getOneRec.title}</h2>
+          <h4 className={`${sass.Description} description`}>
+            {getOneRec.description}
+          </h4>
           <p className={sass.Published_Date}>
-            {moment(getOneRec.published_date).format("MMMM Do YYYY, h:mm:ss a")}
+            Published at:{" "}
+            <b>
+              {moment(getOneRec.published_date).format(
+                "MMMM Do YYYY, h:mm:ss a"
+              )}
+            </b>
           </p>
           <img
             className={sass.Cover_Img}
             src={getOneRec.cover_img.url}
             alt={getOneRec.title}
-            loading="lazy"
           />
         </div>
-        
+
         <Editorjs
           content={getOneRec.content}
           ReadOnly

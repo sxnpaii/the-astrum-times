@@ -1,5 +1,5 @@
 .PostPage {
-  @apply lg:w-[50%] lg:mx-auto mx-3 my-32 font-Inter;
+  @apply lg:w-[50%] lg:mx-auto mx-3 my-16 font-Inter;
   .MetaInfo {
     @apply max-w-[650px] mx-auto mb-10;
     .Event_Time {
@@ -9,13 +9,13 @@
       @apply text-left md:text-4xl text-3xl w-full break-words;
     }
     .Description {
-      @apply text-BasicTextColor text-left max-w-[550px] mb-10;
+      @apply text-BasicTextColor text-left max-w-[550px] mt-3 ;
     }
     .Published_Date {
-      @apply font-Inter text-sm text-left mb-12 opacity-50;
+      @apply font-Inter text-sm text-left opacity-50 ;
     }
     .Cover_Img {
-      @apply max-w-[650px] w-full mx-auto;
+      @apply max-w-[650px] w-full mx-auto mt-5;
     }
   }
   .Content {
