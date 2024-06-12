@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 
 import Post from "../../components/Post";
 // styles

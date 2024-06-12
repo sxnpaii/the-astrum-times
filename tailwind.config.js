@@ -10,10 +10,9 @@ export default {
     fontFamily: {
       OldEngTextMT: ["old-english-text-mt-regular", "serif"],
       Georgia: ["Georgia", "serif"],
-      Inter: ["Inter", "sans-serif"],
       JetBrainsMono: ["JetBrains Mono", "monospace"],
+      Inter: ["Inter", "sans-serif"],
     },
-    extend: {},
   },
   plugins: [],
 };

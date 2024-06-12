@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // routes
 import { ImportFonts } from "./assets/styles/Basics";
-import Layout from "./layouts/Layout";
 import { routes } from "./utils/routes";
 
 // router

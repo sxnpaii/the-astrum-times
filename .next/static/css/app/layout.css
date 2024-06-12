@@ -1,0 +1,78 @@
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src\\app\\layout.jsx","import":"","arguments":[{"src":"../assets/fonts/OLD.ttf","variable":"--font-old-english-text-mt-regular"}],"variableName":"OldEngText"} ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: '__OldEngText_326656';
+src: url(/_next/static/media/05df0bfeaca26607-s.p.ttf) format('truetype');
+font-display: swap;
+}@font-face {font-family: '__OldEngText_Fallback_326656';src: local("Arial");ascent-override: 90.33%;descent-override: 23.30%;line-gap-override: 0.00%;size-adjust: 88.01%
+}.__className_326656 {font-family: '__OldEngText_326656', '__OldEngText_Fallback_326656'
+}.__variable_326656 {--font-old-english-text-mt-regular: '__OldEngText_326656', '__OldEngText_Fallback_326656'
+}
+
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[3].use[1]!./node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js??ruleSet[1].rules[13].oneOf[3].use[2]!./node_modules/next/font/local/target.css?{"path":"src\\app\\layout.jsx","import":"","arguments":[{"src":"../assets/fonts/georgia.ttf","variable":"--font-Georgia"}],"variableName":"Georgia"} ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+@font-face {
+font-family: '__Georgia_ef9a01';
+src: url(/_next/static/media/417756f6159828ba-s.p.ttf) format('truetype');
+font-display: swap;
+}@font-face {font-family: '__Georgia_Fallback_ef9a01';src: local("Arial");ascent-override: 92.30%;descent-override: 22.07%;line-gap-override: 0.00%;size-adjust: 99.35%
+}.__className_ef9a01 {font-family: '__Georgia_ef9a01', '__Georgia_Fallback_ef9a01'
+}.__variable_ef9a01 {--font-Georgia: '__Georgia_ef9a01', '__Georgia_Fallback_ef9a01'
+}
+
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/assets/styles/components/Header.module.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+.Header_Header__3l2Lv {
+    position: relative;
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem
+}
+.Header_Header__3l2Lv .Header_LogoBar__duy1C {
+    display: flex;
+    justify-content: space-between
+}
+.Header_Header__3l2Lv .Header_LogoBar__duy1C .Header_Date__T1a_j {
+    font-family: Inter, sans-serif
+}
+@media not all and (min-width: 768px) {
+    .Header_Header__3l2Lv .Header_LogoBar__duy1C .Header_Date__T1a_j {
+        display: none
+    }
+}
+.Header_Header__3l2Lv .Header_LogoBar__duy1C .Header_TheTitle__KWJex {
+    position: absolute;
+    margin: 0px;
+    width: 100%;
+    text-align: center;
+    font-family: old-english-text-mt-regular;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    font-weight: 400;
+    --tw-text-opacity: 1;
+    color: rgb(18 18 18 / var(--tw-text-opacity));
+    text-decoration-line: none
+}
+@media (min-width: 640px) {
+    .Header_Header__3l2Lv .Header_LogoBar__duy1C .Header_TheTitle__KWJex {
+        font-size: 1.875rem;
+        line-height: 2.25rem
+    }
+}
+@media (min-width: 1024px) {
+    .Header_Header__3l2Lv .Header_LogoBar__duy1C .Header_TheTitle__KWJex {
+        font-size: 3rem;
+        line-height: 1
+    }
+}
+.Header_Header__3l2Lv .Header_LogoBar__duy1C .Header_Test__SRlSG {
+    font-family: JetBrains Mono, monospace;
+    text-transform: capitalize
+}
+@media not all and (min-width: 768px) {
+    .Header_Header__3l2Lv .Header_LogoBar__duy1C .Header_Test__SRlSG {
+        display: none
+    }
+}

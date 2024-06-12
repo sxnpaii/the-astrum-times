@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono:wght@400;700&display=swap");
+
+@font-face {
+  font-family: "old-english-text-mt-regular";
+  src: url("/fonts/OLD.ttf") format("woff"),
+    url("/fonts/OLD.ttf") format("opentype"),
+    url("/fonts/OLD.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Georgia";
+  src: url("/fonts/georgia.ttf") format("woff"),
+    url("/fonts/georgia.ttf") format("opentype"),
+    url("/fonts/georgia.ttf") format("truetype");
+}

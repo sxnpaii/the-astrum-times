@@ -1,24 +1,3 @@
-import OldEngText from "../fonts/OLD.ttf";
-import Georgia from "../fonts/georgia.ttf";
-
-export const ImportFonts = `
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=JetBrains+Mono:wght@400;700&display=swap');
-
-@font-face {
-  font-family: 'old-english-text-mt-regular';
-  src: url("${OldEngText}") format("woff"),
-    url("${OldEngText}") format("opentype"),
-    url("${OldEngText}") format("truetype");
-}
-
-@font-face {
-  font-family: 'Georgia';
-  src: url("${Georgia}") format("woff"),
-    url("${Georgia}") format("opentype"),
-    url("${Georgia}") format("truetype");
-}
-`;
-
 export const styles = `
 h1:not(.title + .description) {
   display: block;

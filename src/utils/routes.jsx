@@ -1,6 +1,6 @@
-import HomePage from "../pages";
-import PostPage from "../pages/post";
-import Create from "../pages/create";
+import HomePage from "../app";
+import PostPage from "../app/post";
+import Create from "../app/create";
 
 const CreatePageUrl = import.meta.env.VITE_CREATEPAGE_URL;
 

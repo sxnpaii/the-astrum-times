@@ -1,12 +1,12 @@
 import moment from "moment";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import sass from "../assets/styles/components/VerticalPost.module.scss";
 import dateIcon from "../assets/images/calendar-line.svg";
 
 const VerticalPost = ({ post }) => {
   return (
     <div className={sass.VerticalPost}>
-      <Link to={`/events/${post.id}`} className={sass.ImgLink}>
+      <Link href={`/events/${post.id}`} className={sass.ImgLink}>
         <img
           src={post.cover_img.url}
           alt={post.cover_img.name}

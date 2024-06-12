@@ -1,5 +1,5 @@
 import moment from "moment";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import dateIcon from "../assets/images/calendar-line.svg";
 import sass from "../assets/styles/components/Post.module.scss";
 
@@ -14,7 +14,7 @@ const Post = ({ postData, isMiniPost, isEvent }) => {
           </div>
         ) : null}
         <Link
-          to={`/${isEvent ? "events" : "posts"}/${postData.id}`}
+          href={`/${isEvent ? "events" : "posts"}/${postData.id}`}
           className={sass.Title}
         >
           {postData.title}
@@ -25,7 +25,7 @@ const Post = ({ postData, isMiniPost, isEvent }) => {
         </p>
       </div>
       <Link
-        to={`/${isEvent ? "events" : "posts"}/${postData.id}`}
+        href={`/${isEvent ? "events" : "posts"}/${postData.id}`}
         className={sass.Link}
       >
         <img
