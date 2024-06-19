@@ -2,4 +2,5 @@
 
 export default {
   distDir: "./build",
+  reactStrictMode: false,
 };

@@ -6,14 +6,14 @@ export const metadata = {
   title: "The Astrum Times",
 };
 
-const Layout = ({ children }) => {
+const Layout = async ({ children }) => {
   return (
     <html lang="en">
       <body>
         <div className="root">
           <main className={`lg:px-7 px-4 w-full `}>
             <Header />
-            {children}
+            <section>{children}</section>
             <style>{styles}</style>
           </main>
         </div>

@@ -2,15 +2,17 @@
   @apply rounded-xl;
   .ql-toolbar {
     @apply w-full sticky top-2 z-10 bg-[#c5bcbcc1] backdrop-blur-xl border-none rounded-xl  scale-100 flex gap-2;
-    .ql-formats {
-      @apply mx-2;
-    }
     .ql-formats > * {
       @apply scale-[1.15] text-HeadingTextColor;
     }
   }
+  .ql-container.ql-snow{
+    @apply border-none;
+
+  }
   .ql-container {
     @apply min-h-[300px] text-base font-Inter border-none;
+    
     .ql-editor {
       img {
         @apply w-full my-5;

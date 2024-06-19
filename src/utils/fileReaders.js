@@ -1,23 +1,16 @@
 import mammoth from "mammoth";
-
 const docxTOHtml = async (file) => {
-  const reader = new FileReader();
-
-  const readonLoad = async () => {
-    const rawHtml = await mammoth
-      .convertToHtml({
-        arrayBuffer: await file,
-      })
-      .then((res) => {
-        const html = res.value;
-        return html;
-      });
-    return rawHtml;
-  };
-
-  reader.onload = readonLoad;
-  reader.readAsArrayBuffer(file);
-  return readonLoad();
+  try {
+    const formdata = new FormData();
+    formdata.append("docx", await file);
+    const rawHTML = await mammoth.convertToHtml({
+      arrayBuffer: await file.arrayBuffer(),
+    });
+    const html = rawHTML.value;
+    return html;
+  } catch (err) {
+    console.error("Error converting DOCX to HTML:", err);
+  }
 };
 
 const extractBase64Images = (htmlString) => {

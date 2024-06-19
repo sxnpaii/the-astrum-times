@@ -1,3 +1,4 @@
+"use client"
 import sass from "../../assets/styles/sections/CreatePage/GeneralForm.module.scss";
 import plus from "../../assets/images/plus-solid.svg";
 
@@ -12,7 +13,7 @@ const GeneralForm = ({
       <label htmlFor="cover_img" className={sass.Cover_img}>
         <img
           className={sass.Img}
-          src={dataImage.content ? dataImage.content : plus}
+          src={dataImage.content ? dataImage.content : plus.src}
           alt="draft image"
         />
         <p>

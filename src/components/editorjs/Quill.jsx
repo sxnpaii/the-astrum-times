@@ -2,8 +2,8 @@
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.bubble.css";
 import "react-quill/dist/quill.snow.css";
-import { styles } from "../assets/styles/Basics";
-import "../assets/styles/components/QullGlobal.scss";
+import { styles } from "../../assets/styles/Basics";
+import "../../assets/styles/components/QullGlobal.scss";
 import { forwardRef } from "react";
 const Quill = forwardRef(function Quill(
   { ReadOnly, content, onChange, className },

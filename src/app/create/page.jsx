@@ -1,20 +1,20 @@
-"use client"
+"use client";
 // react build-in hooks, components, functions
 import { useState, useRef, useEffect } from "react";
 // editorjs tools and components
-import { PostData } from "../firebase/Requests";
+import { PostData } from "../../firebase/Requests";
 import {
   UploadImage,
   replaceBase64ImagesWithUrls,
-} from "../firebase/StorageQueries";
-import Quill from "../editorjs/Quill";
+} from "../../firebase/StorageQueries";
+import Quill from "../../components/editorjs/Quill";
 // components
-import GeneralForm from "../sections/CreatePage/GeneralForm";
+import GeneralForm from "../../sections/CreatePage/GeneralForm";
 // styles
-import sass from "../assets/styles/pages/Create.module.scss";
-import Loading from "../components/Loading";
-import Dialog from "../components/Dialog";
-import { docxTOHtml, extractBase64Images } from "../utils/fileReaders";
+import sass from "../../assets/styles/pages/Create.module.scss";
+import Loading from "../../components/Loading";
+import Dialog from "../../components/Dialog";
+import { docxTOHtml, extractBase64Images } from "../../utils/fileReaders";
 
 // Create page
 const Create = () => {
@@ -173,11 +173,17 @@ const Create = () => {
   };
 
   const importDocx = async (file) => {
-    const docxHtml = await docxTOHtml(file);
-    setDataFromEditor((prev) => ({
-      ...prev,
-      content: docxHtml,
-    }));
+    const reader = new FileReader();
+    try {
+      const docxHtml = await docxTOHtml(file);
+      setDataFromEditor((prev) => ({
+        ...prev,
+        content: docxHtml,
+      }));
+      reader.readAsArrayBuffer(file);
+    } catch (err) {
+      throw new Error(err.message);
+    }
   };
 
   return isLoading ? (
