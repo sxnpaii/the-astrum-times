@@ -1,4 +1,4 @@
-// File: X:\Development\WebDev\Front-End_Development\Bootcamps\TestCampWithKnst-Astrum\Projects\the-astrum-times\src\app\layout.jsx
+// File: X:\Development\WebDev\Front-End_Development\Bootcamps\TestCampWithKnst-Astrum\Projects\the-new-astrum-times\src\app\layout.jsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

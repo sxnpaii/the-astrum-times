@@ -23,12 +23,12 @@
   .Is_Event {
     @apply flex justify-between max-md:flex-col items-center bg-ReadableBgColor rounded-2xl mb-5 p-4 border;
     .Question {
-      @apply flex md:items-end items-start;
+      @apply flex items-center gap-3;
       .Is_EventCheckbox {
         @apply w-5 h-5;
       }
       .Event_Time {
-        @apply focus:outline-none;
+        @apply focus:outline-none p-1 rounded border;
       }
     }
   }

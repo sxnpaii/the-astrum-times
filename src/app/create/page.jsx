@@ -7,7 +7,11 @@ import {
   UploadImage,
   replaceBase64ImagesWithUrls,
 } from "../../firebase/StorageQueries";
-import Quill from "../../components/editorjs/Quill";
+import dynamicImport from "next/dynamic";
+// import Quill from "../../components/editorjs/Quill";
+const Quill = dynamicImport(() => import("../../components/editorjs/Quill"), {
+  ssr: false,
+});
 // components
 import GeneralForm from "../../sections/CreatePage/GeneralForm";
 // styles
@@ -16,6 +20,7 @@ import Loading from "../../components/Loading";
 import Dialog from "../../components/Dialog";
 import { docxTOHtml, extractBase64Images } from "../../utils/fileReaders";
 
+export const dynamic = "force-dynamic";
 // Create page
 const Create = () => {
   // state for loading screen
@@ -29,45 +34,26 @@ const Create = () => {
 
   //  state for handle validation errors
   const [validationErrors, setValidationErrors] = useState({});
-  // Getting draft data stored in localStorage
-  const draft = JSON.parse(localStorage.getItem("draft"));
-  // state for collecting draft
-  localStorage.setItem(
-    "draft",
-    JSON.stringify({
-      title: "",
-      description: "",
-      content: "",
-      is_event: false,
-      event_time: "",
-      published_date: new Date().toISOString(),
-      cover_img: {
-        url: "",
-        content: "",
-        name: "",
-      },
-    })
-  );
   const [dataFromEditor, setDataFromEditor] = useState({
-    ...draft,
+    title: "",
+    description: "",
+    content: "",
+    is_event: false,
+    event_time: "",
+    published_date: new Date().toISOString(),
+    cover_img: {
+      url: "",
+      content: "",
+      name: "",
+    },
   });
-  // effects
-  useEffect(() => {
-    // sync state and localStorage and collecting to one object
-    localStorage.setItem(
-      "draft",
-      JSON.stringify({
-        ...dataFromEditor,
-      })
-    );
-  }, [dataFromEditor, draft]);
-
+  // const [dataFromEditor, setDataFromEditor] = useState({ ...draft });
   // editor functions
-  const editorCore = useRef();
+  const editorCore = useRef(null);
   // set to state editorjs value and to localstorage
   const onChange = () => {
-    if (editorCore !== null) {
-      const raw = editorCore.current?.value;
+    if (editorCore.current !== null) {
+      const raw = editorCore.current.value;
       setDataFromEditor((prev) => ({ ...prev, content: raw }));
     }
   };
@@ -108,6 +94,9 @@ const Create = () => {
       if (!dataFromEditor.description) {
         errors.description = "Description is required";
       }
+      if (!dataFromEditor.event_time && dataFromEditor.is_event) {
+        errors.event_time = "Event Time is required";
+      }
       if (!dataFromEditor.content) {
         errors.content = "Content is required";
       }
@@ -124,8 +113,6 @@ const Create = () => {
       setIsLoading(true);
       // cover img
       const fromStorage = await UploadImage(dataFromEditor.cover_img);
-      // propers
-      const draft_raw = JSON.parse(localStorage.getItem("draft"));
       // convert images
       let base64Arr = extractBase64Images(dataFromEditor.content);
       const withUrlImages = await replaceBase64ImagesWithUrls(
@@ -134,7 +121,7 @@ const Create = () => {
       );
       setDataFromServer(
         await PostData({
-          ...draft_raw,
+          ...dataFromEditor,
           content: withUrlImages.updatedHtmlString,
           imageRefs: withUrlImages.imageRefPaths,
           cover_img: {
@@ -198,14 +185,14 @@ const Create = () => {
           validationErrorsMessages={validationErrors}
         />
         <div className={sass.Content}>
+          <Quill
+            onChange={onChange}
+            reffer={editorCore}
+            content={dataFromEditor.content}
+          />
           {validationErrors.content && (
             <p className={sass.Validator}>{validationErrors.content}</p>
           )}
-          <Quill
-            onChange={onChange}
-            ref={editorCore}
-            content={dataFromEditor.content}
-          />
         </div>
 
         <div className={sass.ImportDocx}>

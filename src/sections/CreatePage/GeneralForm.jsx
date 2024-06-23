@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import sass from "../../assets/styles/sections/CreatePage/GeneralForm.module.scss";
 import plus from "../../assets/images/plus-solid.svg";
 
@@ -67,11 +67,17 @@ const GeneralForm = ({
         </p>
 
         <div className={sass.Question}>
+          {validationErrorsMessages.event_time && (
+            <p className={sass.Validator}>
+              {validationErrorsMessages.event_time}
+            </p>
+          )}
           {dataFromEditor.is_event && (
             <input
               type="datetime-local"
               className={sass.Event_Time}
               value={dataFromEditor.event_time}
+              required={dataFromEditor.is_event}
               onChange={(e) => handleOnChange("event_time", e.target.value)}
             />
           )}

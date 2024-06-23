@@ -10,14 +10,14 @@
       @apply w-full rounded-2xl bg-ReadableBgColor;
     }
     .ImportDocx {
-      @apply w-full  mt-5 ;
+      @apply w-full mt-5;
       .Input {
         @apply file:hidden cursor-pointer p-5 bg-ReadableBgColor border rounded-xl w-full ;
       }
     }
 
     .Actions {
-      @apply flex items-center mt-10 gap-5;
+      @apply flex items-center mt-10 gap-5 ;
       .Btn {
         @apply block text-BasicTextColor w-1/2 py-6 border rounded-2xl;
       }

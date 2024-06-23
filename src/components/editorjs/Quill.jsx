@@ -1,14 +1,19 @@
 "use client";
 import ReactQuill from "react-quill";
+// import dynamic from "next/dynamic";
+// const ReactQuill = dynamic( ()=> import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.bubble.css";
 import "react-quill/dist/quill.snow.css";
 import { styles } from "../../assets/styles/Basics";
 import "../../assets/styles/components/QullGlobal.scss";
 import { forwardRef } from "react";
-const Quill = forwardRef(function Quill(
-  { ReadOnly, content, onChange, className },
-  ref
-) {
+const Quill = forwardRef(function Quill({
+  ReadOnly,
+  content,
+  onChange,
+  className,
+  reffer,
+}) {
   return (
     <>
       <ReactQuill
@@ -19,7 +24,8 @@ const Quill = forwardRef(function Quill(
         // write
         onChange={onChange}
         value={content}
-        { ...ref ? ref={ref}: null}
+        ref={reffer}
+        // {...(reffer ? (ref = { ref }) : null)}
         className={className}
         modules={{
           toolbar: [

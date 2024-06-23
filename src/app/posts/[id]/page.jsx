@@ -1,29 +1,16 @@
 import moment from "moment";
-import dynamic from "next/dynamic";
-const Quill = dynamic(() => import("../../../components/editorjs/Quill"));
+import dynamicImport from "next/dynamic";
+const Quill = dynamicImport(
+  () => import("../../../components/editorjs/Quill"),
+  { ssr: false }
+);
 import { styles } from "../../../assets/styles/Basics";
 import sass from "../../../assets/styles/pages/Post.module.scss";
 
-const getPost = async (id) => {
-  try {
-    const response = await fetch(`${process.env.URL}/api/getonepost?id=${id}`);
-    const getOneRec = await response.json();
-    return getOneRec;
-  } catch (err) {
-    throw new Error(err);
-  }
-};
-export const generateStaticParams = async () => {
-  const fulldata = await fetch(`${process.env.URL}/api/getposts`);
-  const data = await fulldata.json();
-  const ids = data.map((el) => ({
-    id: el.id,
-  }));
-  return ids;
-};
-
-const PostPage = async ({ params: { id } }) => {
-  const getOneRec = await getPost(id);
+const PostPage = async ({ params: { id = "" } }) => {
+  const response = await fetch(`${process.env.URL}/api/getonepost?id=${id}`);
+  const getOneRec = await response.json();
+  // return getOneRec;
   return (
     getOneRec && (
       <main className={sass.PostPage}>

@@ -3,13 +3,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCDDe4i9TFPiVsMNSkkABfhvNLaT5lD2GU",
-  authDomain: "the-astrum-news.firebaseapp.com",
-  projectId: "the-astrum-news",
-  storageBucket: "the-astrum-news.appspot.com",
-  messagingSenderId: "467644112874",
-  appId: "1:467644112874:web:a2cffbf403e5e164da9c93",
-  measurementId: "G-Q84PG1VSKS",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase

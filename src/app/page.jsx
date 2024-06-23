@@ -3,20 +3,22 @@ import Posts from "../sections/HomePage/Posts";
 import RightSide from "../sections/HomePage/RightSide";
 // styles
 import sass from "../assets/styles/pages/HomePage.module.scss";
-import { cache } from "react";
 
-const fetchData = cache(async () => {
+const fetchData = async () => {
   try {
-    const response = await fetch(`${process.env.URL}api/getposts`);
+    const response = await fetch(`${process.env.URL}/api/getposts`);
     const data = await response.json();
-    return data;
+    return await data;
   } catch (err) {
+    console.log(err.message);
     throw new Error(err);
   }
-});
+};
+
+export const dynamic = "force-dynamic";
+
 const HomePage = async () => {
   const getData = await fetchData();
-
   return (
     getData.length !== 0 && (
       <main className={sass.HomePageLayer}>

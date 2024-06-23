@@ -1,5 +1,6 @@
 import { db } from "../../../config/firebase";
 import { doc, getDoc } from "firebase/firestore";
+export const dynamic = "force-dynamic";
 const GET = async (req) => {
   try {
     const { searchParams } = new URL(req.url);

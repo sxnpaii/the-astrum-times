@@ -26,13 +26,11 @@
 .Post_Post__bn5dw .Post_Info__PwhEX .Post_Title__vqP67 {
     margin-bottom: 0.75rem;
     display: inline-block;
-    font-family: Georgia;
+    font-family: Georgia, serif;
     font-size: 1.875rem;
     line-height: 2.25rem;
     font-weight: 700;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
     transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms
 }
@@ -98,7 +96,7 @@
 .Post_Mini_Post__CPOjo .Post_Info__PwhEX .Post_Title__vqP67 {
     margin-bottom: 0.25rem;
     overflow-wrap: break-word;
-    font-family: Georgia;
+    font-family: Georgia, serif;
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 700
@@ -170,42 +168,6 @@
         width: 30%
     }
 }
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/assets/styles/components/Loading.module.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-.Loading_Loading__KSHW7 {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    display: flex;
-    height: 100vh;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    --tw-bg-opacity: 1;
-    background-color: rgb(247 247 245 / var(--tw-bg-opacity))
-}
-.Loading_Loading__KSHW7 .Loading_Animation__pxeFj {
-    width: 150px
-}
-.Loading_Loading__KSHW7 .Loading_Text__UWe_J {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%
-}
-@keyframes Loading_pulse__FvHhs {
-    50% {
-        opacity: .5
-    }
-}
-.Loading_Loading__KSHW7 .Loading_Text__UWe_J {
-    animation: Loading_pulse__FvHhs 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    text-align: center;
-    font-family: Inter, sans-serif;
-    font-size: 1.5rem;
-    line-height: 2rem
-}
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[9].use[3]!./node_modules/next/dist/build/webpack/loaders/resolve-url-loader/index.js??ruleSet[1].rules[13].oneOf[9].use[4]!./node_modules/next/dist/compiled/sass-loader/cjs.js??ruleSet[1].rules[13].oneOf[9].use[5]!./src/assets/styles/pages/HomePage.module.scss ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
@@ -224,15 +186,15 @@
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./node_modules/swiper/swiper.css ***!
   \****************************************************************************************************************************************************************************************************************************************************************************/
 /**
- * Swiper 11.0.5
+ * Swiper 11.1.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
- * Copyright 2014-2023 Vladimir Kharlampidi
+ * Copyright 2014-2024 Vladimir Kharlampidi
  *
  * Released under the MIT License
  *
- * Released on: November 22, 2023
+ * Released on: May 30, 2024
  */
 
 /* FONT_START */
@@ -314,7 +276,8 @@
 }
 .swiper-backface-hidden .swiper-slide {
   transform: translateZ(0);
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
 }
 /* 3D Effects */
 .swiper-3d.swiper-css-mode .swiper-wrapper {
@@ -540,8 +503,7 @@ button.swiper-pagination-bullet {
   padding: 0;
   box-shadow: none;
   -webkit-appearance: none;
-          -moz-appearance: none;
-       appearance: none;
+          appearance: none;
 }
 .swiper-pagination-clickable .swiper-pagination-bullet {
   cursor: pointer;
@@ -645,7 +607,7 @@ button.swiper-pagination-bullet {
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 .Events_Events___4YGI .Events_Heading__SQyy_ {
     margin-bottom: 2.5rem;
-    font-family: Georgia;
+    font-family: Georgia, serif;
     font-size: 1.875rem;
     line-height: 2.25rem;
     font-weight: 700
@@ -660,7 +622,7 @@ button.swiper-pagination-bullet {
     padding-bottom: 2.5rem
 }
 .VerticalPost_VerticalPost__YHug_ .VerticalPost_ImgLink__sfMM8 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     display: inline-block
 }
 .VerticalPost_VerticalPost__YHug_ .VerticalPost_ImgLink__sfMM8 .VerticalPost_Img__TWv_A {
@@ -683,8 +645,8 @@ button.swiper-pagination-bullet {
     max-width: 23px
 }
 .VerticalPost_VerticalPost__YHug_ .VerticalPost_Info__Gakjk .VerticalPost_Title__51qMi {
-    margin-bottom: 1rem;
-    font-family: Georgia;
+    margin-bottom: 0.25rem;
+    font-family: Georgia, serif;
     font-size: 1.5rem;
     line-height: 2rem;
     font-weight: 700
