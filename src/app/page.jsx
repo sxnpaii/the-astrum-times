@@ -6,9 +6,11 @@ import sass from "../assets/styles/pages/HomePage.module.scss";
 
 const fetchData = async () => {
   try {
-    const response = await fetch(`${process.env.URL}/api/getposts`);
+    const response = await fetch(`${process.env.URL}/api/getposts`, {
+      cache: "no-store",
+    });
     const data = await response.json();
-    return await data;
+    return data;
   } catch (err) {
     console.log(err.message);
     throw new Error(err);
@@ -23,8 +25,8 @@ const HomePage = async () => {
     getData.length !== 0 && (
       <main className={sass.HomePageLayer}>
         {/* sections */}
-        <Posts getData={getData.filter((el) => !el.is_event)} />
-        <RightSide events={getData.filter((el) => el.is_event)} />
+        <Posts getData={getData.filter((el) => !el?.is_event)} />
+        <RightSide events={getData.filter((el) => el?.is_event === true)} />
       </main>
     )
   );

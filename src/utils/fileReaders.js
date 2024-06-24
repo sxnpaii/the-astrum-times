@@ -1,8 +1,8 @@
 import mammoth from "mammoth";
 const docxTOHtml = async (file) => {
   try {
-    const formdata = new FormData();
-    formdata.append("docx", await file);
+    // const formdata = new FormData();
+    // formdata.append("docx", await file);
     const rawHTML = await mammoth.convertToHtml({
       arrayBuffer: await file.arrayBuffer(),
     });
@@ -21,7 +21,6 @@ const extractBase64Images = (htmlString) => {
   while ((match = base64Regex.exec(htmlString)) !== null) {
     base64Images.push(match[0]);
   }
-
   return base64Images;
 };
 

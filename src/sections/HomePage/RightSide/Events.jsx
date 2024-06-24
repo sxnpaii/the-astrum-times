@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 
@@ -9,6 +9,7 @@ import VerticalPost from "../../../components/VerticalPost";
 import Post from "../../../components/Post";
 import NotFound from "../../../components/NotFound";
 const Events = ({ events }) => {
+  console.log(events)
   const TODAY = Date.now();
   return (
     <section className={sass.Events}>
@@ -37,7 +38,7 @@ const Events = ({ events }) => {
           modules={[Pagination, Autoplay]}
         >
           {/* filter data */}
-          {events.length ? (
+          {events.length !== 0 ? (
             events
               .filter((el) => new Date(el.event_time).getTime() > TODAY)
               .map((event) => (
@@ -46,7 +47,7 @@ const Events = ({ events }) => {
                 </SwiperSlide>
               ))
           ) : (
-            <NotFound message={"Events not Found"}/>
+            <NotFound message={"Events not Found"} />
           )}
         </Swiper>
       </section>
@@ -54,7 +55,7 @@ const Events = ({ events }) => {
       <hr className="my-5" />
       <section className={sass.PastEvents}>
         <h4 className={sass.Heading}>Past Events</h4>
-        {events.length ? (
+        {events.length !== 0 ? (
           events
             .filter((el) => new Date(el.event_time).getTime() < TODAY)
             .map((el) => (
@@ -66,8 +67,8 @@ const Events = ({ events }) => {
               />
             ))
         ) : (
-          <NotFound message={"Events not Found"}/>
-          )}
+          <NotFound message={"Events not Found"} />
+        )}
       </section>
     </section>
   );
