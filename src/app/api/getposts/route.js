@@ -1,6 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../config/firebase";
-export const revalidate = true
+export const revalidate = 0
 const GET = async (req) => {
   const temp = [];
   try {
