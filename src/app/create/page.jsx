@@ -28,17 +28,19 @@ export const dynamic = "force-dynamic";
 const Create = () => {
   const router = useRouter();
   const [cookies, setCookie] = useCookies(["authToken"]);
-  onAuthStateChanged(auth, async (user) => {
-    if (user) {
-      const cook = await cookies.authToken;
-      const userToken = await user.getIdToken();
-      if (userToken !== cook) {
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const cook = await cookies.authToken;
+        const userToken = await user.getIdToken();
+        if (userToken !== cook) {
+          router.push("/auth/signin");
+        }
+      } else {
         router.push("/auth/signin");
       }
-    } else {
-      router.push("/auth/signin");
-    }
-  });
+    });
+  }, [cookies.authToken, router]);
   // state for loading screen
   const [isLoading, setIsLoading] = useState(false);
 

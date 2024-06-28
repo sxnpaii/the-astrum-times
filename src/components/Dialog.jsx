@@ -26,7 +26,9 @@ const Dialog = ({ message = "", funcs, states, isInfo, isDeleteConfirm }) => {
               <p className="text-2xl">Confirm your action</p>
             )}
             {message && (
-              <p className="text-2xl">The post with id {message} was deleted! </p>
+              <p className="text-2xl">
+                The post with id {message} was deleted!{" "}
+              </p>
             )}
           </div>
           <div className={sass.Actions}>
