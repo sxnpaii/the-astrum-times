@@ -1,6 +1,6 @@
 "use client";
-import sass from "../../assets/styles/sections/CreatePage/GeneralForm.module.scss";
-import plus from "../../assets/images/plus-solid.svg";
+import sass from "@/assets/styles/sections/CreatePage/GeneralForm.module.scss";
+import plus from "@/assets/images/plus-solid.svg";
 
 const GeneralForm = ({
   dataFromEditor,

@@ -1,5 +1,5 @@
 import moment from "moment";
-import sass from "../assets/styles/components/Header.module.scss";
+import sass from "@/assets/styles/components/Header.module.scss";
 import Link from "next/link";
 
 const Header = () => {

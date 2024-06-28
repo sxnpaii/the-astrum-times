@@ -3,13 +3,13 @@
   .LogoBar {
     @apply flex justify-between;
     .Date {
-      @apply font-Inter max-md:hidden;
+      @apply font-Inter max-md:hidden dark:text-ReadableBgColor;
     }
     .TheTitle {
-      @apply absolute  text-center w-full font-OldEngTextMT text-HeadingTextColor no-underline sm:text-3xl text-3xl lg:text-5xl m-0 font-normal;
+      @apply absolute  text-center w-full font-OldEngTextMT text-HeadingTextColor dark:text-ReadableBgColor no-underline sm:text-3xl text-3xl lg:text-5xl m-0 font-normal;
     }
     .Test {
-      @apply font-JetBrainsMono capitalize max-md:hidden;
+      @apply font-JetBrainsMono capitalize max-md:hidden dark:text-ReadableBgColor;
     }
   }
 }

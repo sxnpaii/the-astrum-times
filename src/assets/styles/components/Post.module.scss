@@ -3,13 +3,13 @@
   .Info {
     @apply md:max-w-[50%];
     .Title {
-      @apply inline-block font-bold font-Georgia text-3xl mb-3 hover:underline transition break-words;
+      @apply inline-block font-bold font-Georgia text-3xl mb-3 hover:underline transition break-words dark:text-ReadableBgColor;
     }
     .Description {
-      @apply font-Inter text-BasicTextColor mb-5;
+      @apply font-Inter text-BasicTextColor mb-5 dark:text-ReadableBgColor;
     }
     .Published_Date {
-      @apply font-Inter text-xs opacity-50;
+      @apply font-Inter text-xs opacity-50 dark:text-ReadableBgColor;
     }
   }
   .Link {
@@ -25,19 +25,19 @@
   .Info {
     @apply md:min-w-[35%];
     .Event_Date {
-      @apply flex items-center gap-2 font-Inter opacity-60 text-sm;
+      @apply flex items-center gap-2 font-Inter opacity-60 text-sm dark:text-ReadableBgColor;
       .dateIcon {
-        @apply max-w-[23px];
+        @apply max-w-[23px] dark:text-ReadableBgColor;
       }
     }
     .Title {
-      @apply font-bold font-Georgia text-xl mb-1 break-words;
+      @apply font-bold font-Georgia text-xl mb-1 break-words dark:text-ReadableBgColor;
     }
     .Description {
-      @apply font-Inter text-BasicTextColor text-sm mb-5;
+      @apply font-Inter text-BasicTextColor text-sm mb-5 dark:text-ReadableBgColor;
     }
     .Published_Date {
-      @apply font-Inter text-xs opacity-50;
+      @apply font-Inter text-xs opacity-50 dark:text-ReadableBgColor;
     }
   }
   .Link {

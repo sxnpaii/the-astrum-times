@@ -1,8 +1,8 @@
-import HomePage from "../app";
-import PostPage from "../app/post";
-import Create from "../app/create";
+import HomePage from "@/app";
+import PostPage from "@/app/post";
+import Create from "@/app/create";
 
-const CreatePageUrl = import.meta.env.VITE_CREATEPAGE_URL;
+const CreatePageUrl = import.meta.env.VITE_CREATEPAGE_Url;
 
 export const routes = [
   { path: "/", element: <HomePage />, index: true },

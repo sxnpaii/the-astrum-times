@@ -6,6 +6,7 @@ const tailwindConfig = {
       BasicTextColor: "#5a5a5a",
       HeadingTextColor: "#121212",
       ReadableBgColor: "#f7f7f5",
+      DarkModeBgColor: "#323236",
     },
     fontFamily: {
       OldEngTextMT: ["old-english-text-mt-regular", "serif"],

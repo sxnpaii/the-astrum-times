@@ -1,4 +1,4 @@
-import { db } from "../../../config/firebase";
+import { db } from "@/config/firebase";
 import { doc, getDoc } from "firebase/firestore";
 export const dynamic = "force-dynamic";
 const GET = async (req) => {
@@ -11,10 +11,10 @@ const GET = async (req) => {
         ...docSnap.data(),
       });
     } else {
-      return new Response({ error: "No such document!" }, { status: 404 });
+      return new Response("No such document!", { status: 404 });
     }
   } catch (err) {
-    return new Response({ GetOnePostError: err.message }, { status: 500 });
+    return new Response(err.message, { status: 500 });
   }
 };
 

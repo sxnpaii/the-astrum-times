@@ -10,17 +10,17 @@
     @apply px-4;
 
     .Event_Date {
-      @apply flex items-center gap-2 font-Inter opacity-60 text-sm;
+      @apply flex items-center gap-2 font-Inter opacity-60 text-sm dark:text-ReadableBgColor;
       .dateIcon {
         @apply max-w-[23px];
       }
     }
 
     .Title {
-      @apply font-Georgia text-2xl font-bold mb-1;
+      @apply font-Georgia text-2xl font-bold mb-1 dark:text-ReadableBgColor;
     }
     .Description {
-      @apply font-Inter;
+      @apply font-Inter dark:text-ReadableBgColor;
     }
   }
 }

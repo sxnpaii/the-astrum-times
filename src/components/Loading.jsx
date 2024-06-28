@@ -1,5 +1,5 @@
-import loading from "../assets/images/loading.svg";
-import sass from "../assets/styles/components/Loading.module.scss";
+import loading from "@/assets/images/loading.svg";
+import sass from "@/assets/styles/components/Loading.module.scss";
 
 const Loading = ({ isLoading }) => {
   if (isLoading) {

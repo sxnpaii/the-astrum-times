@@ -1,4 +1,4 @@
-import sass from "../../assets/styles/sections/HomePage/RightSide.module.scss";
+import sass from "@/assets/styles/sections/HomePage/RightSide.module.scss";
 import Events from "./RightSide/Events";
 
 const RightSide = ({ events }) => {

@@ -17,3 +17,7 @@
     url("/fonts/georgia.ttf") format("opentype"),
     url("/fonts/georgia.ttf") format("truetype");
 }
+
+body {
+  @apply dark:bg-DarkModeBgColor
+}

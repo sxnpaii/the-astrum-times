@@ -1,11 +1,10 @@
-import { styles } from "../assets/styles/Basics";
-import Header from "../components/Header";
-import "../index.scss";
+import { styles } from "@/assets/styles/Basics";
+import Header from "@/components/Header";
+import "@/index.scss";
 
 export const metadata = {
   title: "The Astrum Times",
 };
-
 const Layout = ({ children }) => {
   return (
     <html lang="en">

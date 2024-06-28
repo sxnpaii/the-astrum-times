@@ -4,12 +4,11 @@ import { Autoplay, Pagination } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import sass from "../../../assets/styles/sections/HomePage/RightSide/Events.module.scss";
-import VerticalPost from "../../../components/VerticalPost";
-import Post from "../../../components/Post";
-import NotFound from "../../../components/NotFound";
+import sass from "@/assets/styles/sections/HomePage/RightSide/Events.module.scss";
+import VerticalPost from "@/components/VerticalPost";
+import Post from "@/components/Post";
+import NotFound from "@/components/NotFound";
 const Events = ({ events }) => {
-  console.log(events)
   const TODAY = Date.now();
   return (
     <section className={sass.Events}>
@@ -52,7 +51,7 @@ const Events = ({ events }) => {
         </Swiper>
       </section>
       {/* filter data */}
-      <hr className="my-5" />
+      <hr className="my-5 dark:border-BasicTextColor" />
       <section className={sass.PastEvents}>
         <h4 className={sass.Heading}>Past Events</h4>
         {events.length !== 0 ? (

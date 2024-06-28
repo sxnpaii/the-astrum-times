@@ -1,7 +1,7 @@
 import moment from "moment";
 import Link from "next/link";
-import dateIcon from "../assets/images/calendar-line.svg";
-import sass from "../assets/styles/components/Post.module.scss";
+import dateIcon from "@/assets/images/calendar-line.svg";
+import sass from "@/assets/styles/components/Post.module.scss";
 import Image from "next/image";
 
 const Post = ({ postData, isMiniPost, isEvent }) => {

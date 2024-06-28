@@ -2,27 +2,43 @@
 // react build-in hooks, components, functions
 import { useState, useRef, useEffect } from "react";
 // editorjs tools and components
-import { PostData } from "../../firebase/Requests";
+import { PostData } from "@/firebase/Requests";
 import {
   UploadImage,
   replaceBase64ImagesWithUrls,
-} from "../../firebase/StorageQueries";
+} from "@/firebase/StorageQueries";
 import dynamicImport from "next/dynamic";
-// import Quill from "../../components/editorjs/Quill";
-const Quill = dynamicImport(() => import("../../components/editorjs/Quill"), {
+const Quill = dynamicImport(() => import("@/components/editorjs/Quill"), {
   ssr: false,
 });
 // components
-import GeneralForm from "../../sections/CreatePage/GeneralForm";
+import GeneralForm from "@/sections/CreatePage/GeneralForm";
 // styles
-import sass from "../../assets/styles/pages/Create.module.scss";
-import Loading from "../../components/Loading";
-import Dialog from "../../components/Dialog";
-import { docxTOHtml, extractBase64Images } from "../../utils/fileReaders";
+import sass from "@/assets/styles/pages/Create.module.scss";
+import Loading from "@/components/Loading";
+import Dialog from "@/components/Dialog";
+import { docxTOHtml, extractBase64Images } from "@/utils/fileReaders";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/config/firebase";
+import { useCookies } from "react-cookie";
+import { useRouter } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 // Create page
 const Create = () => {
+  const router = useRouter();
+  const [cookies, setCookie] = useCookies(["authToken"]);
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      const cook = await cookies.authToken;
+      const userToken = await user.getIdToken();
+      if (userToken !== cook) {
+        router.push("/auth/signin");
+      }
+    } else {
+      router.push("/auth/signin");
+    }
+  });
   // state for loading screen
   const [isLoading, setIsLoading] = useState(false);
 
@@ -47,7 +63,6 @@ const Create = () => {
       name: "",
     },
   });
-  // const [dataFromEditor, setDataFromEditor] = useState({ ...draft });
   // editor functions
   const editorCore = useRef(null);
   // set to state editorjs value and to localstorage
@@ -82,7 +97,7 @@ const Create = () => {
     reader.readAsDataURL(file);
   };
 
-  // Saving data from localStorage to Server and clear draft
+  // Saving data to Server and clear draft
   const handleSave = async () => {
     try {
       const errors = {};
@@ -131,8 +146,7 @@ const Create = () => {
           published_date: new Date().toISOString(),
         })
       );
-      // clearing draft
-      localStorage.removeItem("draft");
+      console.log(dataFromServer);
       setIsLoading(false);
       setIsDialogOpen(true);
     } catch (error) {
@@ -141,10 +155,8 @@ const Create = () => {
     }
   };
 
-  // Clear draft data from localStorage and state
+  // Clear draft data from state
   const handleClearDraft = () => {
-    // from localStorage
-    localStorage.removeItem("draft");
     // from state
     setDataFromEditor({
       cover_img: {

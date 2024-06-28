@@ -1,0 +1,18 @@
+.Login {
+  @apply h-[60vh] flex items-center justify-center flex-col;
+  .Text {
+    @apply font-Georgia font-semibold mb-10 text-xl dark:text-ReadableBgColor ;
+  }
+  .Form {
+    @apply lg:w-[500px] mx-auto w-full flex flex-col;
+    input {
+      @apply p-3 mb-2 w-full rounded-lg border outline-[#03060a] focus:outline dark:focus:outline-BasicTextColor transition-all;
+    }
+    .Button {
+      @apply mt-5 flex items-center text-center bg-HeadingTextColor dark:bg-ReadableBgColor dark:text-HeadingTextColor rounded-lg px-7 py-3 text-ReadableBgColor font-Inter text-lg hover:scale-[1.02] transition-all;
+    }
+    .Error {
+      @apply text-sm text-[#bb5959] transition-all;
+    }
+  }
+}

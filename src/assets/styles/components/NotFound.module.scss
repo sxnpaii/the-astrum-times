@@ -1,6 +1,6 @@
 .NotFound {
   @apply w-full h-[30vh] flex items-center justify-center;
   .Message {
-    @apply font-Inter text-2xl opacity-60 text-center;
+    @apply font-Inter text-2xl opacity-60 text-center dark:text-ReadableBgColor;
   }
 }

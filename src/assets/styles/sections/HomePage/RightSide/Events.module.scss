@@ -1,7 +1,7 @@
 .Events {
   // @apply w-full;
   .Heading {
-    @apply font-Georgia font-bold text-3xl mb-10;
+    @apply font-Georgia font-bold text-3xl mb-10 dark:text-ReadableBgColor;
   }
   .UpcomingEvents {
     // @apply 

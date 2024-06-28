@@ -1,5 +1,5 @@
 import { getDownloadURL, ref, uploadString } from "firebase/storage";
-import { storage } from "../config/firebase";
+import { storage } from "@/config/firebase";
 import { v4 } from "uuid";
 
 // upload file
@@ -11,12 +11,15 @@ const UploadImage = async (file) => {
     url: null,
   };
   // upload file as base64data_url
-  await uploadString(storageRef, file.content, "data_url");
-  // get download url
-  await getDownloadURL(storageRef).then((url) => {
-    fileFromStorage.url = url;
-    fileFromStorage.name = file.name;
-  });
+  if (!file.content.startsWith("http")) {
+    await uploadString(storageRef, file.content, "data_url");
+    // get download url
+    await getDownloadURL(storageRef).then((url) => {
+      fileFromStorage.url = url;
+      fileFromStorage.name = file.name;
+    });
+    return fileFromStorage;
+  }
   return fileFromStorage;
 };
 

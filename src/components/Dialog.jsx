@@ -1,6 +1,7 @@
-import sass from "../assets/styles/components/Dialog.module.scss";
+import sass from "@/assets/styles/components/Dialog.module.scss";
+import Link from "next/link";
 
-const Dialog = ({ message = "", funcs, states, isInfo }) => {
+const Dialog = ({ message = "", funcs, states, isInfo, isDeleteConfirm }) => {
   const handleClick = () => {
     funcs.Ok();
     states.setIsDialogOpen(false);
@@ -11,18 +12,21 @@ const Dialog = ({ message = "", funcs, states, isInfo }) => {
         <div className={sass.InnerDialog}>
           <div className={sass.Message}>
             {isInfo ? (
-              <a
+              <Link
                 href={`/posts/${message.id}`}
                 className={sass.FreshPostLink}
                 target="_blank"
                 rel="noreferrer"
               >
-                Congrats ! Let's see fresh post!
+                Congrats! Let&apos;s see live post!
                 <br />
-                https://localhost:5173/posts/{`${message.id}`}
-              </a>
+                {process.env.NEXT_PUBLIC_URL}/posts/{`${message.id}`}
+              </Link>
             ) : (
-              <p>Confirm your action .</p>
+              <p className="text-2xl">Confirm your action</p>
+            )}
+            {message && (
+              <p className="text-2xl">The post with id {message} was deleted! </p>
             )}
           </div>
           <div className={sass.Actions}>

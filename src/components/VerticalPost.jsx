@@ -1,7 +1,7 @@
 import moment from "moment";
 import Link from "next/link";
-import sass from "../assets/styles/components/VerticalPost.module.scss";
-import dateIcon from "../assets/images/calendar-line.svg";
+import sass from "@/assets/styles/components/VerticalPost.module.scss";
+import dateIcon from "@/assets/images/calendar-line.svg";
 import Image from "next/image";
 
 const VerticalPost = ({ post }) => {

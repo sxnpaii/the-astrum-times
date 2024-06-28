@@ -1,24 +1,24 @@
 .PostPage {
-  @apply lg:w-[50%] lg:mx-auto mx-3 my-16 font-Inter;
+  @apply lg:w-[50%] lg:mx-auto mx-3 my-16 font-Inter ;
   .MetaInfo {
     @apply max-w-[650px] mx-auto mb-10;
     .Event_Time {
-      @apply block text-left text-2xl text-BasicTextColor;
+      @apply block text-left text-2xl text-BasicTextColor dark:bg-ReadableBgColor;
     }
     .Title {
-      @apply text-left md:text-4xl text-3xl w-full break-words;
+      @apply text-left md:text-4xl text-3xl w-full break-words dark:text-ReadableBgColor;
     }
     .Description {
-      @apply text-BasicTextColor text-left max-w-[550px] mt-3 ;
+      @apply text-BasicTextColor text-left max-w-[550px] mt-3 dark:text-ReadableBgColor;
     }
     .Published_Date {
-      @apply font-Inter text-sm text-left opacity-50 ;
+      @apply font-Inter text-sm text-left opacity-50 dark:text-ReadableBgColor ;
     }
     .Cover_Img {
       @apply max-w-[650px] w-full mx-auto mt-5;
     }
   }
   .Content {
-    @apply w-full max-w-[680px] mx-auto;
+    @apply w-full max-w-[680px] mx-auto dark:text-ReadableBgColor;
   }
 }

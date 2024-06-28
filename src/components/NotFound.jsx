@@ -1,4 +1,4 @@
-import sass from "../assets/styles/components/NotFound.module.scss";
+import sass from "@/assets/styles/components/NotFound.module.scss";
 
 const NotFound = ({ message }) => {
   return (
