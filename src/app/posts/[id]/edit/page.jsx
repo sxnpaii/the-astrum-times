@@ -191,7 +191,6 @@ const EditPost = ({ params: { id } }) => {
       await DeleteData(id);
       setIsLoading(false);
       router.refresh();
-      setIsDialogOpen(true);
     } catch (err) {
       throw new Error(err);
     }
@@ -246,7 +245,7 @@ const EditPost = ({ params: { id } }) => {
           </div>
           <div className={sass.Actions}>
             <button
-              onClick={() => setIsDialogOpen(true)}
+              onClick={handleDelete}
               className={`${sass.Btn} text-[#9b2b2b]`}
             >
               Delete
@@ -265,12 +264,6 @@ const EditPost = ({ params: { id } }) => {
           message={dataFromServer ? dataFromServer : false}
           funcs={!dataFromServer ? { Cancel: "", Ok: handleSave } : false}
           isInfo={dataFromServer}
-        />
-        <Dialog
-          states={{ isDialogOpen, setIsDialogOpen }}
-          message={id}
-          funcs={!dataFromServer ? { Cancel: "", Ok: handleDelete } : false}
-          isDeleteConfirm={true}
         />
       </main>
     );

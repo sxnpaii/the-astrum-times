@@ -148,7 +148,6 @@ const Create = () => {
           published_date: new Date().toISOString(),
         })
       );
-      console.log(dataFromServer);
       setIsLoading(false);
       setIsDialogOpen(true);
     } catch (error) {
